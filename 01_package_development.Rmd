@@ -40,8 +40,6 @@ If you are using Windows, prior to running the above code, you will need to inst
 
 3. Let the installer run itself (the defaults are fine).
 
-
-
 ## Initializing the Package
 
 Now we can begin to walk through the process of creating an R package. The first thing you'll always want to do is run the following function to initialize the package:
@@ -91,7 +89,7 @@ Let's go through the fields and discuss what they mean. The first seven fields l
 
 (These fields are exceptionally important if you are building a package using tools from other packages)
 
-12. **Imports**: In this field, you should list the packages which your package needs to function. Each package should be indented by two spaces, separated by a comma, and given its own line. For example, a pacakge which requires `ggplot2`, `nlme`, and `rpart` might have an 'imports' field which looks like this:
+12. **Imports**: In this field, you should list the packages which your package needs to function. Each package should be indented by two spaces, separated by a comma, and given its own line. For example, a package which requires `ggplot2`, `nlme`, and `rpart` might have an 'imports' field which looks like this:
 
 ![](images/packageSS/imports.PNG)
 
