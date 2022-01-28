@@ -36,7 +36,8 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Package Development in R},
+  pdftitle={Package Development in R for Predator Free New Zealand 2050},
+  pdfauthor={Anthony Davidson},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -155,9 +156,9 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{Package Development in R}
-\author{}
-\date{\vspace{-2.5em}January 2022}
+\title{Package Development in R for Predator Free New Zealand 2050}
+\author{Anthony Davidson}
+\date{January 2022}
 
 \begin{document}
 \maketitle
@@ -170,6 +171,8 @@
 \chapter*{Introduction}\label{introduction}}
 \addcontentsline{toc}{chapter}{Introduction}
 
+I have taken the guide generated at \url{https://iqss.github.io/dss-rbuild/} for my PhD work and future package development.
+
 \hypertarget{table-of-contents}{%
 \section*{Table of Contents}\label{table-of-contents}}
 \addcontentsline{toc}{section}{Table of Contents}
@@ -178,7 +181,6 @@ This guide is organized into three parts.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   First, we'll run through \href{./package-development.html}{The proper way to structure and test packages}.
 \item
@@ -189,9 +191,13 @@ This guide is organized into three parts.
 
 \href{https://www.rstudio.com/wp-content/uploads/2015/03/devtools-cheatsheet.pdf}{Here's a link to a great devtools cheatsheet} which puts most of the useful commands in this guide in one place.
 
+NOTE 2022: I hope to do this for PFNZ 2050 too
+
 We also wrote a small development example package (called \texttt{devex}) which you can find linked \href{https://github.com/IQSS/dss-rbuild/tree/master/devex}{here, on GitHub}. If you haven't used GitHub yet, don't worry - we'll go over how to use GitHub later.
 
-Also, this guide is still under development, and we take feedback! If you find anything confusing or think the guide misses important content, please email \href{mailto:help@iq.harvard.edu}{\nolinkurl{help@iq.harvard.edu}}
+Also, this guide is still under development, and we take feedback! If you find anything confusing or think the guide misses important content, please email \texttt{help@iq.harvard.edu}
+
+NOTE 2022: I have taken the original guide with the key contributors below and developed some extra code and other resources I have used for my PhD work. Maybe some of it will be helpful in the future? :)
 
 \hypertarget{authors-and-sources}{%
 \section*{Authors and Sources}\label{authors-and-sources}}
@@ -347,10 +353,16 @@ Let's go through the fields and discuss what they mean. The first seven fields l
 \setcounter{enumi}{11}
 \tightlist
 \item
-  \textbf{Imports}: In this field, you should list the packages which your package needs to function. Each package should be indented by two spaces, separated by a comma, and given its own line. For example, a pacakge which requires \texttt{ggplot2}, \texttt{nlme}, and \texttt{rpart} might have an `imports' field which looks like this:
+  \textbf{Imports}: In this field, you should list the packages which your package needs to function. Each package should be indented by two spaces, separated by a comma, and given its own line. For example, a package which requires \texttt{ggplot2}, \texttt{nlme}, and \texttt{rpart} might have an `imports' field which looks like this:
 \end{enumerate}
 
-\includegraphics{images/packageSS/imports.PNG}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"images/packageSS/imports.PNG"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics[width=2.07in]{images/packageSS/imports}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -925,7 +937,7 @@ The string `sigmoid output' does not describe the purpose of the test, which is 
 \end{Highlighting}
 \end{Shaded}
 
-This test is a bit more interpretable and delivers a better error message.
+This test is a bit more interpretable/readable and delivers a better error message.
 
 \hypertarget{automated-checking}{%
 \subsection{Automated Checking}\label{automated-checking}}
@@ -979,6 +991,8 @@ And that's it! The \texttt{goodpractice} package is a bit picky, so it's okay to
 \includegraphics{images/testSS/goodpractice2.PNG}
 
 which signals that your package conforms to all good practices. Lastly, although it's beyond the scope of this guide, you ought to know that you can create custom checks using the \texttt{goodpractice} package, as documented \href{https://github.com/MangoTheCat/goodpractice/blob/master/vignettes/custom_checks.Rmd}{here}.
+
+{[}up to here 2022{]}
 
 \hypertarget{tips-and-tricks}{%
 \subsection{Tips and Tricks}\label{tips-and-tricks}}

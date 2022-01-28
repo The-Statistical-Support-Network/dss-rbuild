@@ -41,8 +41,6 @@ If you are using Windows, prior to running the above code, you will need to inst
 
 3. Let the installer run itself (the defaults are fine).
 
-
-
 ## Initializing the Package
 
 Now we can begin to walk through the process of creating an R package. The first thing you'll always want to do is run the following function to initialize the package:
@@ -94,9 +92,15 @@ Let's go through the fields and discuss what they mean. The first seven fields l
 
 (These fields are exceptionally important if you are building a package using tools from other packages)
 
-12. **Imports**: In this field, you should list the packages which your package needs to function. Each package should be indented by two spaces, separated by a comma, and given its own line. For example, a pacakge which requires `ggplot2`, `nlme`, and `rpart` might have an 'imports' field which looks like this:
+12. **Imports**: In this field, you should list the packages which your package needs to function. Each package should be indented by two spaces, separated by a comma, and given its own line. For example, a package which requires `ggplot2`, `nlme`, and `rpart` might have an 'imports' field which looks like this:
 
-![](images/packageSS/imports.PNG)
+
+```r
+knitr::include_graphics("images/packageSS/imports.PNG")
+```
+
+<img src="images/packageSS/imports.PNG" width="149" />
+<!-- ![](images/packageSS/imports.PNG)    -->
 
 13. **Suggests**: Sometimes, your package will not really *require* the use of other packages, but it might offer a couple of extra wrappers/functions with those other packages. When those extra functions aren't strictly necessary, it's a good idea to have your package *suggest* imports. For example, a package which includes the following function should include `ggplot2` in the 'suggests' part of the description.
 
@@ -572,7 +576,7 @@ test_that('test sigmoid precision', {
 })
 ```
 
-This test is a bit more interpretable and delivers a better error message.
+This test is a bit more interpretable/readable and delivers a better error message.
 
 ### Automated Checking
 
@@ -620,6 +624,9 @@ And that's it! The `goodpractice` package is a bit picky, so it's okay to leave 
 ![](images/testSS/goodpractice2.PNG)
 
 which signals that your package conforms to all good practices. Lastly, although it's beyond the scope of this guide, you ought to know that you can create custom checks using the `goodpractice` package, as documented [here](https://github.com/MangoTheCat/goodpractice/blob/master/vignettes/custom_checks.Rmd).
+
+
+[up to here 2022]
 
 ### Tips and Tricks
 

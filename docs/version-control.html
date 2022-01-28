@@ -4,23 +4,24 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Version Control | Package Development in R</title>
+  <title>2 Version Control | Package Development in R for Predator Free New Zealand 2050</title>
   <meta name="description" content="This guide walks through the process of developing an R package" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Version Control | Package Development in R" />
+  <meta property="og:title" content="2 Version Control | Package Development in R for Predator Free New Zealand 2050" />
   <meta property="og:type" content="book" />
   
   
   <meta property="og:description" content="This guide walks through the process of developing an R package" />
-  <meta name="github-repo" content="IQSS/dss-rbuild" />
+  
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Version Control | Package Development in R" />
+  <meta name="twitter:title" content="2 Version Control | Package Development in R for Predator Free New Zealand 2050" />
   
   <meta name="twitter:description" content="This guide walks through the process of developing an R package" />
   
 
+<meta name="author" content="Anthony Davidson" />
 
 
 
@@ -244,7 +245,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Package Development in R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Package Development in R for Predator Free New Zealand 2050</a>
           </h1>
         </div>
 
@@ -291,8 +292,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>If you are running Windows/Mac and the websites above download an installer, simply follow the instructions from the installer - it’s fine to just use default settings.</p>
 <p>Before you can start using Git, you do have to do a one time set up. Git is built to track and organize old versions of code, so it will need you to set your username and email before it will let you start modifying programs. To set your username and email after installing, open the command line on your computer and type the following commands into it:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="version-control.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git config <span class="sc">--</span>global user.name <span class="st">&quot;Your Name&quot;</span></span>
-<span id="cb43-2"><a href="version-control.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git config <span class="sc">--</span>global user.email <span class="st">&quot;youremail@email.com&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="version-control.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git config <span class="sc">--</span>global user.name <span class="st">&quot;Your Name&quot;</span></span>
+<span id="cb44-2"><a href="version-control.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git config <span class="sc">--</span>global user.email <span class="st">&quot;youremail@email.com&quot;</span></span></code></pre></div>
 <p>You might not get explicit confirmation from the command line - for example, when I set the username/email, I see the image below - but don’t worry, Git has still received the message.</p>
 <p><img src="images/configglobals.PNG" /></p>
 <p>Now you’re ready to start using Git/GitHub!</p>
@@ -307,59 +308,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>GitHub will prompt you to choose a repository name and description of the repo, which you should enter, and will also ask you whether you’d like to initialize the repository with a README, a .gitignore file, and a license. For now, just initialize the repo with the README file.</p>
 <p>Once you’ve created the repository on GitHub, the next step is to link it with a local Git repository. To do this, open the <em>command prompt</em> on your computer. You’ll need to enter a couple of commands to get the repo set up on your computer.</p>
 <p>First, you’ll need to set the <em>working directory</em> in the command prompt. The working directory is the location where Git and command prompt will execute all of your commands - ie. if you tell Git to create a new file, the new file will be located your working directory. Thus, before you download your repository, you’ll want to navigate to the folder in which you want the repository to be located. For example, Carlos might want to put a repo in his “R” folder inside the “Documents” folder on his computer. To do this, he’d use the <code>cd</code> command, which stands for “change directory,” and then copy and paste the path of the folder he’d like to place the repository in. An example is given below:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="version-control.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> cd <span class="sc">~</span><span class="er">/</span>Documents<span class="sc">/</span>R</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="version-control.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> cd <span class="sc">~</span><span class="er">/</span>Documents<span class="sc">/</span>R</span></code></pre></div>
 <p>Next, you will need to tell Git to download, or <em>clone</em>, the repo. You can do this using the <code>git clone</code> command, which allows you to download and sync a repository <em>for the first time.</em> This will download the repo, with all its contents, onto your computer and automatically set up a local version of the repo. See an example of the command below:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="version-control.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git clone https<span class="sc">:</span><span class="er">//</span>GitHub.com<span class="sc">/</span>Carlos_Account<span class="sc">/</span>repository_name<span class="sc">/</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="version-control.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git clone https<span class="sc">:</span><span class="er">//</span>GitHub.com<span class="sc">/</span>Carlos_Account<span class="sc">/</span>repository_name<span class="sc">/</span></span></code></pre></div>
 </div>
 <div id="modifying-projects" class="section level3" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Modifying Projects</h3>
 <p>It’s best practice to create new R code files in your local project repository. When you save your code files, initially git will not be aware of them - that is, they will not be <em>tracked</em>, but we can change this by <em>adding</em> them to the local repository using the command <code>git add .</code>. Here, the period following <code>git add</code> tells Git that we want to start tracking all the files in the directory.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="version-control.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> cd <span class="sc">~</span><span class="er">/</span>Documents<span class="sc">/</span>R<span class="sc">/</span>repository_name</span>
-<span id="cb46-2"><a href="version-control.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git add .</span></code></pre></div>
-<p>Once new files are being tracked, we can put them under version control by <em>commiting</em> them, using the command <code>git commit</code>. You can add a message to indicate the changes you’ve made by typing <code>git commit -m "&lt;message-here&gt;"</code> followed by your message in quotes.</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="version-control.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> cd <span class="sc">~</span><span class="er">/</span>Documents<span class="sc">/</span>R<span class="sc">/</span>repository_name</span>
-<span id="cb47-2"><a href="version-control.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git commit <span class="sc">-</span>m <span class="st">&quot;Fixed small bug&quot;</span></span></code></pre></div>
+<span id="cb47-2"><a href="version-control.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git add .</span></code></pre></div>
+<p>Once new files are being tracked, we can put them under version control by <em>commiting</em> them, using the command <code>git commit</code>. You can add a message to indicate the changes you’ve made by typing <code>git commit -m "&lt;message-here&gt;"</code> followed by your message in quotes.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="version-control.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> cd <span class="sc">~</span><span class="er">/</span>Documents<span class="sc">/</span>R<span class="sc">/</span>repository_name</span>
+<span id="cb48-2"><a href="version-control.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git commit <span class="sc">-</span>m <span class="st">&quot;Fixed small bug&quot;</span></span></code></pre></div>
 <p>Lastly, you need to <em>push</em> the files, which means sending them to GitHub online. You can do this by writing <code>git push origin master</code>, which will send the file to the remote GitHub repo.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="version-control.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git push origin master</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="version-control.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git push origin master</span></code></pre></div>
 <p>If you move new files into your local repository, they will need to be tracked using <code>git add .</code> and then committed using <code>git commit -m "&lt;message-here&gt;"</code> before they are under version control.</p>
 </div>
 <div id="accessing-older-versions-of-code" class="section level3" number="2.3.3">
 <h3><span class="header-section-number">2.3.3</span> Accessing older versions of code</h3>
 <p>You should never be scared of Git/GitHub, because they only add information - they almost never delete it. In practice, this means that if you commit horrible changes to your code, you can easily revert to a previous version. For example, let’s say Grace wrote some new functions for a script, deleted them and committed the deletes later on, but now wants the functions back. She can easily access the older script using Git. First, she should use the <code>git log</code> command to see what commits have been made recently.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="version-control.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git log</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="version-control.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git log</span></code></pre></div>
 <p>This command might give an output like this:</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="version-control.html#cb50-1" aria-hidden="true" tabindex="-1"></a>commit 06c347sa (HEAD <span class="ot">-&gt;</span> master, origin<span class="sc">/</span>master, origin<span class="sc">/</span>HEAD)</span>
-<span id="cb50-2"><a href="version-control.html#cb50-2" aria-hidden="true" tabindex="-1"></a>Author<span class="sc">:</span> Grace Smith <span class="sc">&lt;</span>gracesmith<span class="sc">@</span>gmail.com<span class="sc">&gt;</span></span>
-<span id="cb50-3"><a href="version-control.html#cb50-3" aria-hidden="true" tabindex="-1"></a>Date<span class="sc">:</span>   Sun Feb <span class="dv">18</span> <span class="dv">23</span><span class="sc">:</span><span class="dv">13</span><span class="sc">:</span><span class="dv">32</span> <span class="dv">2018</span> <span class="sc">-</span><span class="dv">0500</span></span>
-<span id="cb50-4"><a href="version-control.html#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-5"><a href="version-control.html#cb50-5" aria-hidden="true" tabindex="-1"></a>    Remove storage functions</span>
-<span id="cb50-6"><a href="version-control.html#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-7"><a href="version-control.html#cb50-7" aria-hidden="true" tabindex="-1"></a>commit b69a14b</span>
-<span id="cb50-8"><a href="version-control.html#cb50-8" aria-hidden="true" tabindex="-1"></a>Author<span class="sc">:</span> Grace Smith <span class="sc">&lt;</span>gracesmith<span class="sc">@</span>gmail.com<span class="sc">&gt;</span></span>
-<span id="cb50-9"><a href="version-control.html#cb50-9" aria-hidden="true" tabindex="-1"></a>Date<span class="sc">:</span>   Sat Feb <span class="dv">17</span> <span class="dv">23</span><span class="sc">:</span><span class="dv">11</span><span class="sc">:</span><span class="dv">28</span> <span class="dv">2018</span> <span class="sc">-</span><span class="dv">0500</span></span>
-<span id="cb50-10"><a href="version-control.html#cb50-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-11"><a href="version-control.html#cb50-11" aria-hidden="true" tabindex="-1"></a>    Add storage functions</span>
-<span id="cb50-12"><a href="version-control.html#cb50-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-13"><a href="version-control.html#cb50-13" aria-hidden="true" tabindex="-1"></a>commit 8a237d1</span>
-<span id="cb50-14"><a href="version-control.html#cb50-14" aria-hidden="true" tabindex="-1"></a>Author<span class="sc">:</span> Grace Smith <span class="sc">&lt;</span>gracesmith<span class="sc">@</span>gmail.com<span class="sc">&gt;</span></span>
-<span id="cb50-15"><a href="version-control.html#cb50-15" aria-hidden="true" tabindex="-1"></a>Date<span class="sc">:</span>   Fri Feb <span class="dv">16</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">28</span><span class="sc">:</span><span class="dv">46</span> <span class="dv">2018</span> <span class="sc">-</span><span class="dv">0500</span></span>
-<span id="cb50-16"><a href="version-control.html#cb50-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-17"><a href="version-control.html#cb50-17" aria-hidden="true" tabindex="-1"></a>    Initial commit</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="version-control.html#cb51-1" aria-hidden="true" tabindex="-1"></a>commit 06c347sa (HEAD <span class="ot">-&gt;</span> master, origin<span class="sc">/</span>master, origin<span class="sc">/</span>HEAD)</span>
+<span id="cb51-2"><a href="version-control.html#cb51-2" aria-hidden="true" tabindex="-1"></a>Author<span class="sc">:</span> Grace Smith <span class="sc">&lt;</span>gracesmith<span class="sc">@</span>gmail.com<span class="sc">&gt;</span></span>
+<span id="cb51-3"><a href="version-control.html#cb51-3" aria-hidden="true" tabindex="-1"></a>Date<span class="sc">:</span>   Sun Feb <span class="dv">18</span> <span class="dv">23</span><span class="sc">:</span><span class="dv">13</span><span class="sc">:</span><span class="dv">32</span> <span class="dv">2018</span> <span class="sc">-</span><span class="dv">0500</span></span>
+<span id="cb51-4"><a href="version-control.html#cb51-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-5"><a href="version-control.html#cb51-5" aria-hidden="true" tabindex="-1"></a>    Remove storage functions</span>
+<span id="cb51-6"><a href="version-control.html#cb51-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-7"><a href="version-control.html#cb51-7" aria-hidden="true" tabindex="-1"></a>commit b69a14b</span>
+<span id="cb51-8"><a href="version-control.html#cb51-8" aria-hidden="true" tabindex="-1"></a>Author<span class="sc">:</span> Grace Smith <span class="sc">&lt;</span>gracesmith<span class="sc">@</span>gmail.com<span class="sc">&gt;</span></span>
+<span id="cb51-9"><a href="version-control.html#cb51-9" aria-hidden="true" tabindex="-1"></a>Date<span class="sc">:</span>   Sat Feb <span class="dv">17</span> <span class="dv">23</span><span class="sc">:</span><span class="dv">11</span><span class="sc">:</span><span class="dv">28</span> <span class="dv">2018</span> <span class="sc">-</span><span class="dv">0500</span></span>
+<span id="cb51-10"><a href="version-control.html#cb51-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-11"><a href="version-control.html#cb51-11" aria-hidden="true" tabindex="-1"></a>    Add storage functions</span>
+<span id="cb51-12"><a href="version-control.html#cb51-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-13"><a href="version-control.html#cb51-13" aria-hidden="true" tabindex="-1"></a>commit 8a237d1</span>
+<span id="cb51-14"><a href="version-control.html#cb51-14" aria-hidden="true" tabindex="-1"></a>Author<span class="sc">:</span> Grace Smith <span class="sc">&lt;</span>gracesmith<span class="sc">@</span>gmail.com<span class="sc">&gt;</span></span>
+<span id="cb51-15"><a href="version-control.html#cb51-15" aria-hidden="true" tabindex="-1"></a>Date<span class="sc">:</span>   Fri Feb <span class="dv">16</span> <span class="dv">21</span><span class="sc">:</span><span class="dv">28</span><span class="sc">:</span><span class="dv">46</span> <span class="dv">2018</span> <span class="sc">-</span><span class="dv">0500</span></span>
+<span id="cb51-16"><a href="version-control.html#cb51-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-17"><a href="version-control.html#cb51-17" aria-hidden="true" tabindex="-1"></a>    Initial commit</span></code></pre></div>
 <p>Clearly, Grace should restore the second commit listed, named ‘b69a14b,’ in order to access the functions she deleted. There are generally two situations:</p>
 <ol style="list-style-type: decimal">
 <li><p>If the changes have not been pushed onto the remote repository, to access the deleted functions, Grace can use the <code>git reset</code> command with the <code>--hard</code> option and the commit number: <code>git reset --hard b69a14b</code>. This will update the current version of the script to the <code>b69a14b</code> version, which Grace can then inspect and test until she’s ready to commit it to Git/GitHub. Note that this is a pretty serious action to take because it will effectively delete all the commits after the version being restored.</p></li>
 <li><p>If the changes have been pushed onto the remote repository, Grace can access the deleted functions using the following commands:</p></li>
 </ol>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="version-control.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git revert <span class="sc">--</span>no<span class="sc">-</span>commit head</span>
-<span id="cb51-2"><a href="version-control.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git commit <span class="sc">-</span>m <span class="st">&quot;&lt;message-here&gt;&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="version-control.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git revert <span class="sc">--</span>no<span class="sc">-</span>commit head</span>
+<span id="cb52-2"><a href="version-control.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git commit <span class="sc">-</span>m <span class="st">&quot;&lt;message-here&gt;&quot;</span></span></code></pre></div>
 <p>This will update the current version of the script to the <code>b69a14b</code> version in Grace’s local repository. Then Grace can push it onto the remote repository using <code>git push origin master</code> command.</p>
 </div>
 <div id="the-.gitignore-file" class="section level3" number="2.3.4">
 <h3><span class="header-section-number">2.3.4</span> The .gitignore file</h3>
 <p>There’s one more thing you should know about adding/modifying files that will make your life a lot easier. Sometimes, when modifying and commiting projects, you won’t want to type out every individual file you’ve modified: you’ll instead want to use the <code>git add .</code> command which will simply queue every modified file to be committed.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="version-control.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git add .</span>
-<span id="cb52-2"><a href="version-control.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git commit <span class="sc">-</span>m <span class="st">&quot;&lt;message-here&gt;&quot;</span></span>
-<span id="cb52-3"><a href="version-control.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git push</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="version-control.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git add .</span>
+<span id="cb53-2"><a href="version-control.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git commit <span class="sc">-</span>m <span class="st">&quot;&lt;message-here&gt;&quot;</span></span>
+<span id="cb53-3"><a href="version-control.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git push</span></code></pre></div>
 <p>However, often, you’ll have files in your directory which you do not want to commit or push to GitHub because they’ll clutter up the directory. For example, R directories create “.RHistory” and “.RData” files which will save your history and working environment. These are useful perhaps when writing code, but you don’t want them taking up space in your final packaged product.</p>
 <p>To solve this problem, you can use a <em>.gitignore file.</em> A .gitignore file tells Git to ignore certain kinds of files when you write <code>git add .</code>. For example, gitignore files are frequently configured to tell git to ignore csv files, .RData files, installer logs, and more.</p>
 <p>Let’s discuss how <em>.gitignore</em> files actually work. A .gitignore file is really just a glorified text file. However, its filename should be just ‘.gitignore’, because that’s how Git recognizes it - then, if you put a file titled ‘.gitignore’ in a directory you’re working on, Git will use the .gitignore file to decide what to ignore in that specific directory. For example, if Grace is working on a project in ‘~/Documents/R/repo_name’, she should create a ‘.gitignore’ file inside that folder.</p>
@@ -409,16 +410,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="creating-and-switching-branches" class="section level5" number="2.3.5.0.1">
 <h5><span class="header-section-number">2.3.5.0.1</span> Creating and Switching Branches</h5>
 <p>To create a branch, use the <code>git checkout</code> command followed with a <code>-b</code> and the name of the branch:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="version-control.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git checkout <span class="sc">-</span>b branch_name</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="version-control.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git checkout <span class="sc">-</span>b branch_name</span></code></pre></div>
 <p>This will create a new branch which is identical to the initial (master) branch. You can modify it as you like, and you will still be able to easily access the initial (master) branch. To do this, simply use the <code>git checkout</code> command without the <code>-b</code> and type the name of the branch you want to switch to:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="version-control.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git checkout switch_to_this_branch</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="version-control.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git checkout switch_to_this_branch</span></code></pre></div>
 <p>Remember, switching to a branch will change the way the file shows up once you open it from your computer.</p>
 </div>
 <div id="merging-branches" class="section level5" number="2.3.5.0.2">
 <h5><span class="header-section-number">2.3.5.0.2</span> Merging Branches</h5>
 <p>Suppose you have created a test branch, tested it to make sure it works, and now want to combine it with the original master branch. To do this, use the <code>git checkout</code> command in combination with the <code>git merge</code> command as follows:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="version-control.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git checkout master</span>
-<span id="cb55-2"><a href="version-control.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git merge test_branch_name</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="version-control.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git checkout master</span>
+<span id="cb56-2"><a href="version-control.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> git merge test_branch_name</span></code></pre></div>
 <p>These two commands will merge the test branch into the master branch, meaning that the master branch at the end of the merging will look like the test branch.</p>
 </div>
 </div>
@@ -440,26 +441,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption"><em>Grace’s Modified Version of Loss Script</em></p>
 </div>
 <p>Git is smart, so when Grace tries to push her version to GitHub, Git will recognize that the two versions of the script conflict. As a result, it will throw the following error:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="version-control.html#cb56-1" aria-hidden="true" tabindex="-1"></a>C<span class="sc">:</span>\Users\gracesmith\Documents\R\repo_name<span class="sc">&gt;</span>git push</span>
-<span id="cb56-2"><a href="version-control.html#cb56-2" aria-hidden="true" tabindex="-1"></a>To https<span class="sc">:</span><span class="er">//</span>GitHub.com<span class="sc">/</span>gracesmith<span class="sc">/</span>repo_name</span>
-<span id="cb56-3"><a href="version-control.html#cb56-3" aria-hidden="true" tabindex="-1"></a> <span class="sc">!</span> [rejected]        master <span class="ot">-&gt;</span> <span class="fu">master</span> (fetch first)</span>
-<span id="cb56-4"><a href="version-control.html#cb56-4" aria-hidden="true" tabindex="-1"></a>error<span class="sc">:</span> failed to push some refs to <span class="st">&#39;https://GitHub.com/gracesmith/repo_name&#39;</span></span>
-<span id="cb56-5"><a href="version-control.html#cb56-5" aria-hidden="true" tabindex="-1"></a>hint<span class="sc">:</span> Updates were rejected because the remote contains work that you do</span>
-<span id="cb56-6"><a href="version-control.html#cb56-6" aria-hidden="true" tabindex="-1"></a>hint<span class="sc">:</span> not have locally. This is usually caused by another repository pushing</span>
-<span id="cb56-7"><a href="version-control.html#cb56-7" aria-hidden="true" tabindex="-1"></a>hint<span class="sc">:</span> to the same ref. You may want to first integrate the remote changes</span>
-<span id="cb56-8"><a href="version-control.html#cb56-8" aria-hidden="true" tabindex="-1"></a>hint<span class="sc">:</span> (e.g., <span class="st">&#39;git pull ...&#39;</span>) before pushing again.</span>
-<span id="cb56-9"><a href="version-control.html#cb56-9" aria-hidden="true" tabindex="-1"></a>hint<span class="sc">:</span> See the <span class="st">&#39;Note about fast-forwards&#39;</span> <span class="cf">in</span> <span class="st">&#39;git push --help&#39;</span> <span class="cf">for</span> details.</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="version-control.html#cb57-1" aria-hidden="true" tabindex="-1"></a>C<span class="sc">:</span>\Users\gracesmith\Documents\R\repo_name<span class="sc">&gt;</span>git push</span>
+<span id="cb57-2"><a href="version-control.html#cb57-2" aria-hidden="true" tabindex="-1"></a>To https<span class="sc">:</span><span class="er">//</span>GitHub.com<span class="sc">/</span>gracesmith<span class="sc">/</span>repo_name</span>
+<span id="cb57-3"><a href="version-control.html#cb57-3" aria-hidden="true" tabindex="-1"></a> <span class="sc">!</span> [rejected]        master <span class="ot">-&gt;</span> <span class="fu">master</span> (fetch first)</span>
+<span id="cb57-4"><a href="version-control.html#cb57-4" aria-hidden="true" tabindex="-1"></a>error<span class="sc">:</span> failed to push some refs to <span class="st">&#39;https://GitHub.com/gracesmith/repo_name&#39;</span></span>
+<span id="cb57-5"><a href="version-control.html#cb57-5" aria-hidden="true" tabindex="-1"></a>hint<span class="sc">:</span> Updates were rejected because the remote contains work that you do</span>
+<span id="cb57-6"><a href="version-control.html#cb57-6" aria-hidden="true" tabindex="-1"></a>hint<span class="sc">:</span> not have locally. This is usually caused by another repository pushing</span>
+<span id="cb57-7"><a href="version-control.html#cb57-7" aria-hidden="true" tabindex="-1"></a>hint<span class="sc">:</span> to the same ref. You may want to first integrate the remote changes</span>
+<span id="cb57-8"><a href="version-control.html#cb57-8" aria-hidden="true" tabindex="-1"></a>hint<span class="sc">:</span> (e.g., <span class="st">&#39;git pull ...&#39;</span>) before pushing again.</span>
+<span id="cb57-9"><a href="version-control.html#cb57-9" aria-hidden="true" tabindex="-1"></a>hint<span class="sc">:</span> See the <span class="st">&#39;Note about fast-forwards&#39;</span> <span class="cf">in</span> <span class="st">&#39;git push --help&#39;</span> <span class="cf">for</span> details.</span></code></pre></div>
 <p>Effectively, Git recognizes that Carlos has made modifications to the script which were pushed to GitHub that Grace doesn’t have. This usually happens <em>when two programmers modify exactly the same line in a single script</em>, such as line 6 in the above examples. To solve this problem, Grace should follow Git’s advice, and try the <code>git pull</code> command. This will lead to the following message from git:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="version-control.html#cb57-1" aria-hidden="true" tabindex="-1"></a>C<span class="sc">:</span>\Users\gracesmith\Documents\R\repo_name<span class="sc">&gt;</span>git pull</span>
-<span id="cb57-2"><a href="version-control.html#cb57-2" aria-hidden="true" tabindex="-1"></a>remote<span class="sc">:</span> Counting objects<span class="sc">:</span> <span class="dv">3</span>, done.</span>
-<span id="cb57-3"><a href="version-control.html#cb57-3" aria-hidden="true" tabindex="-1"></a>remote<span class="sc">:</span> Compressing objects<span class="sc">:</span> <span class="dv">100</span>% (<span class="dv">3</span><span class="sc">/</span><span class="dv">3</span>), done.</span>
-<span id="cb57-4"><a href="version-control.html#cb57-4" aria-hidden="true" tabindex="-1"></a>remote<span class="sc">:</span> Total <span class="dv">3</span> (delta <span class="dv">1</span>), reused <span class="dv">0</span> (delta <span class="dv">0</span>), pack<span class="sc">-</span>reused <span class="dv">0</span></span>
-<span id="cb57-5"><a href="version-control.html#cb57-5" aria-hidden="true" tabindex="-1"></a>Unpacking objects<span class="sc">:</span> <span class="dv">100</span>% (<span class="dv">3</span><span class="sc">/</span><span class="dv">3</span>), done.</span>
-<span id="cb57-6"><a href="version-control.html#cb57-6" aria-hidden="true" tabindex="-1"></a>From https<span class="sc">:</span><span class="er">//</span>GitHub.com<span class="sc">/</span>gracesmith<span class="sc">/</span>repo_name</span>
-<span id="cb57-7"><a href="version-control.html#cb57-7" aria-hidden="true" tabindex="-1"></a>   e719863..59fc0ba  master     <span class="ot">-&gt;</span> origin<span class="sc">/</span>master</span>
-<span id="cb57-8"><a href="version-control.html#cb57-8" aria-hidden="true" tabindex="-1"></a>Auto<span class="sc">-</span>merging scriptname.R</span>
-<span id="cb57-9"><a href="version-control.html#cb57-9" aria-hidden="true" tabindex="-1"></a><span class="fu">CONFLICT</span> (content)<span class="sc">:</span> Merge conflict <span class="cf">in</span> scriptname.R</span>
-<span id="cb57-10"><a href="version-control.html#cb57-10" aria-hidden="true" tabindex="-1"></a>Automatic merge failed; fix conflicts and then commit the result.</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="version-control.html#cb58-1" aria-hidden="true" tabindex="-1"></a>C<span class="sc">:</span>\Users\gracesmith\Documents\R\repo_name<span class="sc">&gt;</span>git pull</span>
+<span id="cb58-2"><a href="version-control.html#cb58-2" aria-hidden="true" tabindex="-1"></a>remote<span class="sc">:</span> Counting objects<span class="sc">:</span> <span class="dv">3</span>, done.</span>
+<span id="cb58-3"><a href="version-control.html#cb58-3" aria-hidden="true" tabindex="-1"></a>remote<span class="sc">:</span> Compressing objects<span class="sc">:</span> <span class="dv">100</span>% (<span class="dv">3</span><span class="sc">/</span><span class="dv">3</span>), done.</span>
+<span id="cb58-4"><a href="version-control.html#cb58-4" aria-hidden="true" tabindex="-1"></a>remote<span class="sc">:</span> Total <span class="dv">3</span> (delta <span class="dv">1</span>), reused <span class="dv">0</span> (delta <span class="dv">0</span>), pack<span class="sc">-</span>reused <span class="dv">0</span></span>
+<span id="cb58-5"><a href="version-control.html#cb58-5" aria-hidden="true" tabindex="-1"></a>Unpacking objects<span class="sc">:</span> <span class="dv">100</span>% (<span class="dv">3</span><span class="sc">/</span><span class="dv">3</span>), done.</span>
+<span id="cb58-6"><a href="version-control.html#cb58-6" aria-hidden="true" tabindex="-1"></a>From https<span class="sc">:</span><span class="er">//</span>GitHub.com<span class="sc">/</span>gracesmith<span class="sc">/</span>repo_name</span>
+<span id="cb58-7"><a href="version-control.html#cb58-7" aria-hidden="true" tabindex="-1"></a>   e719863..59fc0ba  master     <span class="ot">-&gt;</span> origin<span class="sc">/</span>master</span>
+<span id="cb58-8"><a href="version-control.html#cb58-8" aria-hidden="true" tabindex="-1"></a>Auto<span class="sc">-</span>merging scriptname.R</span>
+<span id="cb58-9"><a href="version-control.html#cb58-9" aria-hidden="true" tabindex="-1"></a><span class="fu">CONFLICT</span> (content)<span class="sc">:</span> Merge conflict <span class="cf">in</span> scriptname.R</span>
+<span id="cb58-10"><a href="version-control.html#cb58-10" aria-hidden="true" tabindex="-1"></a>Automatic merge failed; fix conflicts and then commit the result.</span></code></pre></div>
 <p>Again, Git is letting Grace know that it sees there’s a conflict and that Git needs human help to fix it. Once Grace has pulled Carlos’s changes, she can go open the script in her computer and should see something like the following:</p>
 <div class="figure">
 <img src="images/lossConflict.PNG" alt="" />
@@ -531,14 +532,14 @@ For reasons we’ll discuss in a second, continuous integration is a bit easier 
 <p><strong>Step 3</strong>: Depending on whether you’re using Appveyor or Travis, you should run <code>usethis::use_appveyor()</code> or <code>usethis::use_travis()</code> in the console with your local repository open. This will create a file named ‘appveyor.yml’ or ‘travis.yml’ in the root directory of your local repository. These ‘.yml’ files will tell AppVeyor/Travis what to do. It’s actually not too important to understand everything they do, just because the devtools template generally works pretty well. However, you occasionally will have to modify it to suit specific needs. AppVeyor and Travis CI both have great documentation, linked <a href="https://www.appveyor.com/docs/build-configuration/">here for Appveyor</a> and <a href="https://docs.travis-ci.com/user/languages/r/">here for Travis</a>.</p>
 <p>(Note - <code>usethis</code> also adds ‘appveyor.yml’ and ‘travis.yml’ to the .Rbuildignore to reduce clutter in your package.)</p>
 <p><strong>Step 4: Dependency Issues</strong>: If you’re using Travis, it’s important to talk quickly about dependencies in packages. Travis was not originally designed for R projects, so occasionally it’s a bit shaky, specifically with regard to dependencies in packages (i.e. Travis will build your package online, but if your package depends on <code>ggplot2</code>, then Travis will have to install <code>ggplot2</code> before building your package). By default, Travis/Appveyor automatically install anything listed in the dependencies listed in the DESCRIPTION file for your project. However, occasionally something goes wrong. If you get error messages that look like Travis did not install all of the dependencies, it’s worth specifying them in the .yml file. You can by adding a line like the following:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="version-control.html#cb58-1" aria-hidden="true" tabindex="-1"></a>build_script<span class="sc">:</span></span>
-<span id="cb58-2"><a href="version-control.html#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> r_packages<span class="sc">:</span> package_name</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="version-control.html#cb59-1" aria-hidden="true" tabindex="-1"></a>build_script<span class="sc">:</span></span>
+<span id="cb59-2"><a href="version-control.html#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span> r_packages<span class="sc">:</span> package_name</span></code></pre></div>
 <p>under <em>build_script</em> section in the .yml file (this will install the package the same way that R installs it when you run <code>install.packages()</code>). If you’d like to install a package using a different method (i.e. from a GitHub version of the package), there are lots of options listed in the <a href="https://docs.travis-ci.com/user/languages/r/">R-specific Travis documentation</a>. However, it’s important to remember that this is generally NOT necessary - Travis/Appveyor do a pretty good job of automatically detecting/installing dependencies as long as your DESCRIPTION file specifies them.</p>
 <p><strong>Step 5</strong>: If you are working with many other developers on a single package, you should also add a ‘.gitattributes’ file into the root of your directory. This is because different operating systems handle different characters, for example line terminators, slightly differently. Modern Mac and Unix/Linux systems use <code>\n</code> to terminate the end of each line, in what is called the ‘line feed’ or ‘LF’ system, whereas Windows uses <code>\r\n</code> in the ‘Carriage Return Line Feed’ or ‘CRLF’ system. The point is that the ‘.gitattributes’ file will ensure that each developer uses exactly the same line endings, because you can set the ‘text’ setting which controls the method of writing line terminators.</p>
 <p>The way it works is that the ‘.gitattribute’ file should be a line of path-patterns followed by specific attributes. These path-patterns (for a refresher, see the Atlanian guide <a href="https://www.atlassian.com/git/tutorials/saving-changes/gitignore">here</a>) are exactly the same path-patterns used in the .gitignore file, just for a different purpose. For example, one line might be</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="version-control.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> text<span class="ot">=</span>auto</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="version-control.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> text<span class="ot">=</span>auto</span></code></pre></div>
 <p>where the “*” refers to all files in the root directory, and the ‘text=auto’ sets the ‘text’ attribute to auto. Alternatively, you could write</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="version-control.html#cb60-1" aria-hidden="true" tabindex="-1"></a>R<span class="sc">/</span><span class="er">*</span> text<span class="ot">=</span>lf</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="version-control.html#cb61-1" aria-hidden="true" tabindex="-1"></a>R<span class="sc">/</span><span class="er">*</span> text<span class="ot">=</span>lf</span></code></pre></div>
 <p>which forces all the scripts directly in the R subdirectory to use the ‘lf’ line terminator. You can personalize the .gitattributes file if you like, but you can also just use the sample .gitattributes linked <a href="https://GitHub.com/krlmlr/r-appveyor/blob/master/.gitattributes">here</a>. You can download this file and move it to the root directory of your package (it must be in the root directory).</p>
 <p>The .gitattributes file actually is useful for setting a variety of other attributes besides line endings, although some of them are a bit technical. If you’re curious to find out more about what the .gitattributes file can do, the full documentation is linked <a href="https://git-scm.com/docs/gitattributes">here</a>.</p>
 <p>Once you do all of this, you’re set to go! When you push changes to GitHub, all the new files (.yml, .gitignore, .gitattributes) you created will be pushed to the remote. By clicking “NEW BUILD”, Travis/AppVeyor will automatically build and test the package for you. For example on Appveyor, if you sign in, you should see something like this:</p>
