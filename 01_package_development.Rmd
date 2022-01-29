@@ -2,6 +2,8 @@
 
 The following graphic outlines this entire chapter:
 
+
+
 ![](images/package_workflow2.png)
 
 As a quick reminder, you can find the `devex` example package linked [here, on GitHub](https://github.com/IQSS/Rbuild/tree/master/devex), if you'd like to look through it while reading the guide.
