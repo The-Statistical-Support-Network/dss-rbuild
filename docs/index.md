@@ -12,6 +12,8 @@ link-citations: yes
 
 # Introduction {-}
 
+Reproducibility and package development are one and the same in many aspects
+
 I have taken the guide generated at [https://iqss.github.io/dss-rbuild/](https://iqss.github.io/dss-rbuild/) for my PhD work and future package development.
 
 ## Table of Contents {-}

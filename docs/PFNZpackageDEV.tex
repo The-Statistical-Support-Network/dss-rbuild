@@ -112,7 +112,7 @@
 \usepackage{booktabs}
 
 \usepackage{epsfig}
-\usepackage{epstopdf}
+% \usepackage{epstopdf}
 \usepackage{rotate}
 \usepackage{graphicx}
 \usepackage{hyperref}
@@ -207,6 +207,10 @@ NOTE 2022: I have taken the original guide with the key contributors below and d
 
 It's worth acknowledging a few people who helped make this guide possible. First of all, Simo Goshev and Steve Worthington at Harvard's IQSS helped design the structure of the guide and edited the content. Second, Asher Spector at Harvard College did the hard work of actually writing the tutorial in Rmarkdown and configuring the GitHub repo and website. Third, Jinjie Liu at IQSS helped to polish the content. Fourth, this guide was written for a different audience, but a lot of its structure and content is based on Hadley Wickham's book \href{http://r-pkgs.had.co.nz/}{R Packages}. To help write the sections on testing, we also referenced \href{http://slides.com/christophergandrud/failing-faster\#/24}{Christopher Gandrud's `Failing Faster' Presentation}, and \href{https://github.com/IQSS/social_science_software_toolkit/blob/master/testing/recommended_testing_tools_R.md\#recommended-testing-tools-and-process-for-r-packages}{Christopher Gandrud's Broader Testing Guidelines}. For the section on on Version Control, we referenced \href{https://kbroman.org/github_tutorial/}{Karl Broman's Book}, a \href{https://www.git-tower.com/learn/git/faq/restore-repo-to-previous-revision}{Git-Tower post}, and the GitHub documentation \href{https://git-scm.com/book/en/v2/Getting-Started-Git-Basics}{here} and \href{https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup}{here} to help write this guide.
 
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
 \hypertarget{package-development}{%
 \chapter{Package Development}\label{package-development}}
 
@@ -216,36 +220,43 @@ The following graphic outlines this entire chapter:
 
 As a quick reminder, you can find the \texttt{devex} example package linked \href{https://github.com/IQSS/Rbuild/tree/master/devex}{here, on GitHub}, if you'd like to look through it while reading the guide.
 
-\hypertarget{file-paths}{%
-\section{File Paths}\label{file-paths}}
-
-The paths used to locate files differ between UNIX (e.g., MacOS, Linux) and Windows based operating systems. Windows systems used a single backslash \texttt{\textbackslash{}}, while UNIX systems use a single forward slash \texttt{/} to delimit files or directories in the path. R follows the UNIX convention of using forward slashes, but forces this on Window's users too. So, file paths should look like this:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  MacOS and Linux
-\end{enumerate}
-
-\texttt{\textasciitilde{}/Documents/myproject/myRfile.R}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Windows
-\end{enumerate}
-
-\texttt{C:/Documents/myproject/myRfile.R}
-
-In the examples provided in this guide, we will show MacOS file paths. If you're using Windows, you will need to modify these paths slightly to show the drive letter at the beginning, followed by a colon.
-
 \hypertarget{downloading-development-tools}{%
 \section{Downloading Development Tools}\label{downloading-development-tools}}
 
-Before we get started, you'll want to download four packages that are extremely useful for package development. For Mac/Linux users, head to the R Gui (or your favorite IDE) and run the code below to download the packages. If you are prompted to choose a CRAN mirror for your session, simply pick the mirror closest to your location.
+There are a collection of development tools in R that make much of the package development cycle easier than ever before. Below are the list of packages needed to work with our development workflow.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{\textquotesingle{}devtools\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: usethis
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{\textquotesingle{}usethis\textquotesingle{}}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{\textquotesingle{}roxygen2\textquotesingle{}}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{\textquotesingle{}testthat\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'testthat'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:devtools':
+## 
+##     test_file
+\end{verbatim}
+
+Before we get started,
+
+you'll want to download four packages that are extremely useful for package development. For Mac/Linux users, head to the R Gui (or your favorite IDE) and run the code below to download the packages. If you are prompted to choose a CRAN mirror for your session, simply pick the mirror closest to your location.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -302,12 +313,41 @@ You can then set the working directory for your project to an ``active'' status:
 
 Once you've set up the basic structure of your package, you can start modifying files and writing it in earnest!
 
+\hypertarget{file-paths}{%
+\section{File Paths}\label{file-paths}}
+
+The paths used to locate files differ between UNIX (e.g., MacOS, Linux) and Windows based operating systems. Windows systems used a single backslash \texttt{\textbackslash{}}, while UNIX systems use a single forward slash \texttt{/} to delimit files or directories in the path. R follows the UNIX convention of using forward slashes, but forces this on Window's users too. So, file paths should look like this:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  MacOS and Linux
+\end{enumerate}
+
+\texttt{\textasciitilde{}/Documents/myproject/myRfile.R}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Windows
+\end{enumerate}
+
+\texttt{C:/Documents/myproject/myRfile.R}
+
+In the examples provided in this guide, we will show MacOS file paths. If you're using Windows, you will need to modify these paths slightly to show the drive letter at the beginning, followed by a colon.
+
 \hypertarget{the-description}{%
 \section{The DESCRIPTION}\label{the-description}}
 
 The DESCRIPTION file gives an extremely brief overview to the package. It includes critical information such as the author of the package, the title, a very short summary of its purpose, and the licensing information. Open the ``DESCRIPTION'' file using your favorite text editor in order to inspect and edit its contents.
 
 DESCRIPTION is a DCF file (Debian control format). This file format may be unfamiliar, but it's quite simple. Each line contains a field name and value, separated by a colon. Sometimes, values are long enough to require multiple lines, in which case they are indented by four spaces. For example, the DESCRIPTION file for a newly created package will look like this:
+
+\begin{verbatim}
+\end{verbatim}
 
 \includegraphics{images/packageSS/description_blank.png}
 
@@ -1022,7 +1062,7 @@ Documentation is an absolutely essential part of any package - most people won't
 \hypertarget{documenting-functions}{%
 \subsection{Documenting Functions}\label{documenting-functions}}
 
-(Note: here, we describe how to document functions. For a more detailed description of how to document S3, S4, and reference classes, check out \href{http://r-pkgs.had.co.nz/man.html}{this page}.)
+Note: here, we describe how to document functions. For a more detailed description of how to document S3, S4, and reference classes, check out \href{http://r-pkgs.had.co.nz/man.html}{this page}.
 
 To understand how to use \texttt{Roxygen2}, it's best to start with an example. Consider the following code, which generates the documentation for the \texttt{general\_sqrt()} function above.
 
@@ -1072,13 +1112,13 @@ Inside the R script, the documentation appears right above the definition of the
 \item
   You should start your documentation with a very short (2-4 word) title of the function. In the example given above, the \texttt{general\_sqrt()} function is titled ``Generalized Square Roots.''
 \item
-  You should describe your functions' parameters using the `\citet{param}' signifier. This should succinctly describe the type (i.e.~double, integer, character) of the parameter, as well as its function, as well as any potential default value.
+  You should describe your functions' parameters using the `param' signifier. This should succinctly describe the type (i.e.~double, integer, character) of the parameter, as well as its function, as well as any potential default value.
 \item
   You should document the type of output your function returns. Is it an integer, a dataframe, a matrix? Does it depend on the input? Your documentation should answer these questions!
 \item
   You \emph{must} provide examples of your function's use. These are pretty critical, because a lot of programmers will just skip straight to the examples (and only look at the rest of the documentation if the examples are unclear).
 \item
-  You may choose to write `\citet{export}' at the end of your documentation block. You should only do this if you want other people to use the function that you're exporting, because exporting it will make sure it shows up in the \textbf{namespace}, a document that makes sure your package works in combination with other packages. For example, if your package includes data labelled `lm', the namespace will prevent errors when using that data in combination with the R stats package (which has a function called `lm') and will \emph{not} throw an error. The \href{http://r-pkgs.had.co.nz/namespace.html}{exact mechanics of the namespace} are slightly beyond the scope of this guide, but thankfully \texttt{Roxygen2} will automatically generate a namespace for you when you create documentation with ``\citet{export}'' tags.
+  You may choose to write `export' at the end of your documentation block. You should only do this if you want other people to use the function that you're exporting, because exporting it will make sure it shows up in the \textbf{namespace}, a document that makes sure your package works in combination with other packages. For example, if your package includes data labelled `lm', the namespace will prevent errors when using that data in combination with the R stats package (which has a function called `lm') and will \emph{not} throw an error. The \href{http://r-pkgs.had.co.nz/namespace.html}{exact mechanics of the namespace} are slightly beyond the scope of this guide, but thankfully \texttt{Roxygen2} will automatically generate a namespace for you when you create documentation with ``export'' tags.
 \end{enumerate}
 
 Note that most functions you write won't be exported - for example, if you write a helper function like \texttt{loss()} which is only used in service of a larger function, it shouldn't be exported (exporting too many functions `clutters' the namespace).
@@ -1231,7 +1271,7 @@ In this way, you can include in your package any data you want, providing it has
 \end{Highlighting}
 \end{Shaded}
 
-This should all look pretty similar to documenting functions. Note that `\citet{format}' is a tag which will allow you to describe the structure of a dataset, and it's good practice to list what each column measures in this section. The `\citet{source}' section describes where the data came from. Never write `\citet{export}' in this section, as data here is already automatically exported.
+This should all look pretty similar to documenting functions. Note that `format' is a tag which will allow you to describe the structure of a dataset, and it's good practice to list what each column measures in this section. The `source' section describes where the data came from. Never write `export' in this section, as data here is already automatically exported.
 
 \hypertarget{including-data-for-your-functions}{%
 \subsection{Including data for your functions}\label{including-data-for-your-functions}}
@@ -1311,5 +1351,72 @@ And that's it!
 First, there's a wonderful cheat sheet for package development linked \href{https://www.rstudio.com/wp-content/uploads/2015/06/devtools-cheatsheet.pdf}{here}.
 
 Second, if you're having trouble, you can always just reference \href{https://stackoverflow.com/questions/tagged/r}{stackoverflow}.
+
+\hypertarget{resources}{%
+\chapter{Resources}\label{resources}}
+
+The contte
+
+\hypertarget{general}{%
+\section{General}\label{general}}
+
+\begin{itemize}
+\item
+  \href{https://www.rstudio.com/resources/cheatsheets/}{This link} contains a number of truly fantastic cheat sheets, documenting everything from RStudio itself to data visualization and machine learning.
+\item
+  To read more about using R, \href{http://adv-r.had.co.nz/}{take a look at the following website, built by Chapman and Hall}
+\item
+  As always, it's worth referencing \href{https://stackoverflow.com/questions/tagged/r/}{stackoverflow} if you're ever confused.
+\item
+  A list of useful packages can be found \href{https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages}{here}.
+\end{itemize}
+
+\hypertarget{package-development-1}{%
+\section{Package Development}\label{package-development-1}}
+
+\begin{itemize}
+\item
+  There's a wonderful cheat sheet for package development linked \href{https://www.rstudio.com/wp-content/uploads/2015/06/devtools-cheatsheet.pdf}{here}. This also describes a lot of key components of the testthat package.
+\item
+  If you are looking for a very simple example of a package, the \href{https://github.com/IQSS/Rbuild/tree/master/devex}{devex package} can be found here. If you're having trouble understanding the workflow for package development, it's worth looking through the \texttt{devex} package and making sure you understand all its components. Better yet, you can practice using \texttt{roxygen2} and \texttt{devtools} by creating a very small/useless package (2-3 simple functions)
+\item
+  It can sometimes be instructive to look through the \href{https://www.rdocumentation.org/packages/devtools/versions/1.13.3/source}{source code} and \href{https://www.rdocumentation.org/packages/devtools/versions/1.13.3}{documentation} for \texttt{devtools}.
+\end{itemize}
+
+Additionally, as you build larger and more complex packages, you might need a deeper understanding of package structure. For a slightly more in-depth explanation of package development, you'll want to reference Hadley Wickham's \href{http://r-pkgs.had.co.nz/}{R Packages}. For a serious dive into package mechanics, you should consult the official \href{https://cran.r-project.org/doc/manuals/R-exts.html\#Creating-R-packages}{R Extensions Manual}, which is published by CRAN. However, at least for mid-sized packages, this guide probably has given you most of what you need to know.
+
+\hypertarget{version-control}{%
+\section{Version Control}\label{version-control}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf}{The official GitHub cheat sheet} lists all of the general commands you'll need
+\item
+  \href{http://kbroman.org/github_tutorial/pages/init.html}{Karl Broman's tutorial} runs you through initializing a repository
+\item
+  Atlassian's table of the .gitignore syntactical rules is listed \href{https://www.atlassian.com/git/tutorials/gitignore}{here}.
+\item
+  Here are the links to the build configuration docs for \href{https://www.appveyor.com/docs/build-configuration/}{Appveyor} and \href{https://docs.travis-ci.com/user/languages/r/}{Travis}.
+\end{itemize}
+
+If you're interested in reading more:
+
+\begin{itemize}
+\tightlist
+\item
+  The Software Carpentry Foundation has a great mid level Git tutorial \href{https://swcarpentry.GitHub.io/git-novice/}{here}
+\item
+  Atlassian has some wonderful advanced Git tutorials \href{https://www.atlassian.com/git/tutorials/advanced-overview}{here}
+\end{itemize}
+
+\hypertarget{ides}{%
+\section{IDEs}\label{ides}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.theanalysisfactor.com/the-advantages-of-rstudio/}{This page} lists some more of RStudio's advantages.
+\end{itemize}
 
 \end{document}
