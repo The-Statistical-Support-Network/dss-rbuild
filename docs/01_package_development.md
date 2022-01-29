@@ -101,7 +101,7 @@ Let's go through the fields and discuss what they mean. The first seven fields l
 knitr::include_graphics("images/packageSS/imports.PNG")
 ```
 
-<img src="images/packageSS/imports.PNG" width="74" />
+<img src="images/packageSS/imports.PNG" width="149" />
 <!-- ![](images/packageSS/imports.PNG)    -->
 
 13. **Suggests**: Sometimes, your package will not really *require* the use of other packages, but it might offer a couple of extra wrappers/functions with those other packages. When those extra functions aren't strictly necessary, it's a good idea to have your package *suggest* imports. For example, a package which includes the following function should include `ggplot2` in the 'suggests' part of the description.
