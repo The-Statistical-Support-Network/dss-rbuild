@@ -193,23 +193,17 @@ This guide is organized into three parts.
 
 \href{https://www.rstudio.com/wp-content/uploads/2015/03/devtools-cheatsheet.pdf}{Here's a link to a great devtools cheatsheet} which puts most of the useful commands in this guide in one place.
 
+\begin{quote}
 NOTE 2022: I hope to do this for PFNZ 2050 too
+\end{quote}
 
 We also wrote a small development example package (called \texttt{devex}) which you can find linked \href{https://github.com/IQSS/dss-rbuild/tree/master/devex}{here, on GitHub}. If you haven't used GitHub yet, don't worry - we'll go over how to use GitHub later.
 
 Also, this guide is still under development, and we take feedback! If you find anything confusing or think the guide misses important content, please email \texttt{help@iq.harvard.edu}
 
+\begin{quote}
 NOTE 2022: I have taken the original guide with the key contributors below and developed some extra code and other resources I have used for my PhD work. Maybe some of it will be helpful in the future? :)
-
-\hypertarget{authors-and-sources}{%
-\section*{Authors and Sources}\label{authors-and-sources}}
-\addcontentsline{toc}{section}{Authors and Sources}
-
-It's worth acknowledging a few people who helped make this guide possible. First of all, Simo Goshev and Steve Worthington at Harvard's IQSS helped design the structure of the guide and edited the content. Second, Asher Spector at Harvard College did the hard work of actually writing the tutorial in Rmarkdown and configuring the GitHub repo and website. Third, Jinjie Liu at IQSS helped to polish the content. Fourth, this guide was written for a different audience, but a lot of its structure and content is based on Hadley Wickham's book \href{http://r-pkgs.had.co.nz/}{R Packages}. To help write the sections on testing, we also referenced \href{http://slides.com/christophergandrud/failing-faster\#/24}{Christopher Gandrud's `Failing Faster' Presentation}, and \href{https://github.com/IQSS/social_science_software_toolkit/blob/master/testing/recommended_testing_tools_R.md\#recommended-testing-tools-and-process-for-r-packages}{Christopher Gandrud's Broader Testing Guidelines}. For the section on on Version Control, we referenced \href{https://kbroman.org/github_tutorial/}{Karl Broman's Book}, a \href{https://www.git-tower.com/learn/git/faq/restore-repo-to-previous-revision}{Git-Tower post}, and the GitHub documentation \href{https://git-scm.com/book/en/v2/Getting-Started-Git-Basics}{here} and \href{https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup}{here} to help write this guide.
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\end{quote}
 
 \hypertarget{package-development}{%
 \chapter{Package Development}\label{package-development}}
@@ -223,7 +217,27 @@ As a quick reminder, you can find the \texttt{devex} example package linked \hre
 \hypertarget{downloading-development-tools}{%
 \section{Downloading Development Tools}\label{downloading-development-tools}}
 
-There are a collection of development tools in R that make much of the package development cycle easier than ever before. Below are the list of packages needed to work with our development workflow.
+There are a collection of development tools in R that make much of the package development cycle easier than ever before.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(pkgbuild)}
+\NormalTok{pkgbuild}\SpecialCharTok{::}\FunctionTok{check\_build\_tools}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Your system is ready to build packages!
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# usethis::use\_r("colours")}
+\CommentTok{\# usethis::use\_test()}
+\end{Highlighting}
+\end{Shaded}
+
+Below are the list of packages needed to work with our development workflow.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -233,6 +247,17 @@ There are a collection of development tools in R that make much of the package d
 
 \begin{verbatim}
 ## Loading required package: usethis
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'devtools'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:pkgbuild':
+## 
+##     build
 \end{verbatim}
 
 \begin{Shaded}
@@ -346,16 +371,12 @@ The DESCRIPTION file gives an extremely brief overview to the package. It includ
 
 DESCRIPTION is a DCF file (Debian control format). This file format may be unfamiliar, but it's quite simple. Each line contains a field name and value, separated by a colon. Sometimes, values are long enough to require multiple lines, in which case they are indented by four spaces. For example, the DESCRIPTION file for a newly created package will look like this:
 
-\begin{verbatim}
-\end{verbatim}
-
 \includegraphics{images/packageSS/description_blank.png}
 
 Let's go through the fields and discuss what they mean. The first seven fields listed are mandatory, meaning that if you do not include them, the development environment will throw an error later on when you're trying to build your package.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   \textbf{Package}: This is the name of the package. It should match the package name you chose earlier, and you should probably just leave this as is.
 \item
@@ -689,18 +710,22 @@ If you've finished writing your code and want to play with it a little bit, you 
 
 which (according to its documentation) ``roughly simulates what happens when a package is installed and loaded with library.'' As we'll see in the \protect\hyperlink{releasing-your-package}{build}, \protect\hyperlink{testing}{testing}, and \href{./integrated-development-environments.html\#ex-building-packages}{RStudio} sections, there are better ways to simulate the user experience and test your code, but \texttt{load\_all()} is often a useful intermediate step.
 
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
 \hypertarget{testing}{%
-\section{Testing}\label{testing}}
+\chapter{Testing}\label{testing}}
 
 \hypertarget{why-should-you-test}{%
-\subsection{Why should you test?}\label{why-should-you-test}}
+\section{Why should you test?}\label{why-should-you-test}}
 
 Suppose an imaginary programmer named Grace has created a package and has been using it for a while, but she decides she'd like to modify one function to improve it. She modifies her function, tests it a bit, and then publishes a new version of the package. Yet two weeks later, another imaginary programmer named Carlos discovers that the changes she made created a bug in \emph{another} function in the package! This situation is very annoying, especially if Carlos has no idea what has caused the bug or how to fix it. Unfortunately, it's also an extremely common problem.
 
 The solution to problems like this is to test your package \emph{systematically} and \emph{automatically}. If Grace had rigorously tested the entire package before publishing it, Carlos would never have had to deal with the new bug- Grace would have found out immediately. In other words, a good principle in package development is to make sure your code \emph{fails as fast as possible,} so you can find out and fix it. Of course, all programmers test their code, but not everyone tests systematically and automatically.
 
 \hypertarget{what-are-unit-tests}{%
-\subsection{What are unit tests?}\label{what-are-unit-tests}}
+\section{What are unit tests?}\label{what-are-unit-tests}}
 
 Tests compare the \emph{expected} output of a block of code to its \emph{actual} output. For example, the following test tests whether the ``generalized square root'' function actually returns \(2\) as the square root of \(4\).
 
@@ -790,6 +815,11 @@ The tests do not fail because (i) `hello1234' contains `hello' and (ii) the erro
 \NormalTok{testthat}\SpecialCharTok{::}\FunctionTok{expect\_is}\NormalTok{(}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{2}\NormalTok{), }\StringTok{\textquotesingle{}numeric\textquotesingle{}}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+## Warning: `expect_is()` was deprecated in the 3rd edition.
+## i Use `expect_type()`, `expect_s3_class()`, or `expect_s4_class()` instead
+\end{verbatim}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1055,12 +1085,12 @@ When testing, there are a couple of key principles to keep in mind:
 The \texttt{devtools} cheatsheet, linked \href{https://www.rstudio.com/wp-content/uploads/2015/03/devtools-cheatsheet.pdf}{here}, references a lot of the key components of the \texttt{testthat} package.
 
 \hypertarget{documentation}{%
-\section{Documentation}\label{documentation}}
+\chapter{Documentation}\label{documentation}}
 
 Documentation is an absolutely essential part of any package - most people won't be willing to read your source code to figure out how your functions work. Thankfully, creating documentation for your package is incredibly easy with \texttt{Roxygen2}.
 
 \hypertarget{documenting-functions}{%
-\subsection{Documenting Functions}\label{documenting-functions}}
+\section{Documenting Functions}\label{documenting-functions}}
 
 Note: here, we describe how to document functions. For a more detailed description of how to document S3, S4, and reference classes, check out \href{http://r-pkgs.had.co.nz/man.html}{this page}.
 
@@ -1355,7 +1385,13 @@ Second, if you're having trouble, you can always just reference \href{https://st
 \hypertarget{resources}{%
 \chapter{Resources}\label{resources}}
 
-The contte
+The original resources include:
+- dss-rbuild
+
+\hypertarget{dss-authors-and-sources}{%
+\section{\texorpdfstring{\texttt{dss} authors and sources}{dss authors and sources}}\label{dss-authors-and-sources}}
+
+It's worth acknowledging a few people who helped make this guide possible. First of all, Simo Goshev and Steve Worthington at Harvard's IQSS helped design the structure of the guide and edited the content. Second, Asher Spector at Harvard College did the hard work of actually writing the tutorial in Rmarkdown and configuring the GitHub repo and website. Third, Jinjie Liu at IQSS helped to polish the content. Fourth, this guide was written for a different audience, but a lot of its structure and content is based on Hadley Wickham's book \href{http://r-pkgs.had.co.nz/}{R Packages}. To help write the sections on testing, we also referenced \href{http://slides.com/christophergandrud/failing-faster\#/24}{Christopher Gandrud's `Failing Faster' Presentation}, and \href{https://github.com/IQSS/social_science_software_toolkit/blob/master/testing/recommended_testing_tools_R.md\#recommended-testing-tools-and-process-for-r-packages}{Christopher Gandrud's Broader Testing Guidelines}. For the section on on Version Control, we referenced \href{https://kbroman.org/github_tutorial/}{Karl Broman's Book}, a \href{https://www.git-tower.com/learn/git/faq/restore-repo-to-previous-revision}{Git-Tower post}, and the GitHub documentation \href{https://git-scm.com/book/en/v2/Getting-Started-Git-Basics}{here} and \href{https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup}{here} to help write this guide.
 
 \hypertarget{general}{%
 \section{General}\label{general}}

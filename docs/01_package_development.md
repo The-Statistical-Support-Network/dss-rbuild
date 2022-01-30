@@ -10,7 +10,27 @@ As a quick reminder, you can find the `devex` example package linked [here, on G
 
 ## Downloading Development Tools
 
-There are a collection of development tools in R that make much of the package development cycle easier than ever before. Below are the list of packages needed to work with our development workflow.
+There are a collection of development tools in R that make much of the package development cycle easier than ever before. 
+
+
+```r
+library(pkgbuild)
+pkgbuild::check_build_tools()
+```
+
+```
+## Your system is ready to build packages!
+```
+
+
+```r
+# usethis::use_r("colours")
+# usethis::use_test()
+```
+
+
+
+Below are the list of packages needed to work with our development workflow.
 
 
 ```r
@@ -19,6 +39,17 @@ library('devtools')
 
 ```
 ## Loading required package: usethis
+```
+
+```
+## 
+## Attaching package: 'devtools'
+```
+
+```
+## The following object is masked from 'package:pkgbuild':
+## 
+##     build
 ```
 
 ```r
@@ -39,11 +70,6 @@ library('testthat')
 ```
 
 Before we get started, 
-
-
-
-
-
 
 
 
@@ -110,23 +136,25 @@ The DESCRIPTION file gives an extremely brief overview to the package. It includ
 
 DESCRIPTION is a DCF file (Debian control format). This file format may be unfamiliar, but it's quite simple. Each line contains a field name and value, separated by a colon. Sometimes, values are long enough to require multiple lines, in which case they are indented by four spaces. For example, the DESCRIPTION file for a newly created package will look like this:
 
-```
-
-
-```
-
 
 ![](images/packageSS/description_blank.png)
 
 Let's go through the fields and discuss what they mean. The first seven fields listed are mandatory, meaning that if you do not include them, the development environment will throw an error later on when you're trying to build your package.
 
 1. **Package**: This is the name of the package. It should match the package name you chose earlier, and you should probably just leave this as is.
+
 2. **Title**: A short but more descriptive title of your package than its name.
+
 3. **Version**: The version of your package. Since you're creating this package for the first time, presumably it's version 0.1.0.
+
 4. **Authors**: Here, you should add in your given and family names, role, email, and (optionally) your ORCID.
+
 5. **Description**: This should be a one-paragraph *comprehensive* description of the package. It is necessarily a high level-description, but it should be a complete one.
+
 6. **License**: You should add in a License, which describes how others can legally use the package. Most of the time (especially in the US), you should write 'CC0' in the License field, which implies that the package is open for all use, and you have relinquished all your rights to it. For more information on various licensing options, click [this link](https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Licensing).
+
 7. **Encoding**: Just leave this as "UTF-8"; discussing what encodings are isn't super important for this guide. If you're dying to learn about encodings, visit [this webpage](https://www.w3.org/International/questions/qa-what-is-encoding).
+
 8. **LazyData**: Just leave this as 'true', which ensures that if you include any data with your package (which you frequently will), when another user loads your package, they won't automatically load up the data, but will only load it if it becomes necessary during their use. This option reduces the amount of RAM users have to expend when loading packages, especially if you are planning to include a lot of data with your package.
 
 (Note all of the fields from this point on are optional, but encouraged!)
@@ -144,7 +172,7 @@ Let's go through the fields and discuss what they mean. The first seven fields l
 knitr::include_graphics("images/packageSS/imports.PNG")
 ```
 
-<img src="images/packageSS/imports.PNG" width="74" />
+<img src="images/packageSS/imports.PNG" width="149" />
 
 <!-- ![](images/packageSS/imports.PNG)    -->
 

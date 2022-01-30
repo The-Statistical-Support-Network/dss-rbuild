@@ -1,4 +1,6 @@
+---
 
+---
 
 # Testing
 
@@ -70,6 +72,11 @@ The tests do not fail because (i) 'hello1234' contains 'hello' and (ii) the erro
 
 ```r
 testthat::expect_is(sqrt(2), 'numeric')
+```
+
+```
+## Warning: `expect_is()` was deprecated in the 3rd edition.
+## i Use `expect_type()`, `expect_s3_class()`, or `expect_s4_class()` instead
 ```
 
 5. **expect_true** and **expect_false** respectively expect a statement to evaluate to TRUE or FALSE.
