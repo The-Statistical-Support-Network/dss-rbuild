@@ -172,7 +172,7 @@ Let's go through the fields and discuss what they mean. The first seven fields l
 knitr::include_graphics("images/packageSS/imports.PNG")
 ```
 
-<img src="images/packageSS/imports.PNG" width="149" />
+<img src="images/packageSS/imports.PNG" width="74" />
 
 <!-- ![](images/packageSS/imports.PNG)    -->
 

@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Documentation | Package Development in R for Predator Free New Zealand 2050</title>
-  <meta name="description" content="This guide walks through the process of developing an R package" />
+  <title>3 Documentation | Package Development in R</title>
+  <meta name="description" content="This guide walks through the process of developing an R packages for Predator Free New Zealand 2050" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Documentation | Package Development in R for Predator Free New Zealand 2050" />
+  <meta property="og:title" content="3 Documentation | Package Development in R" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This guide walks through the process of developing an R package" />
+  <meta property="og:description" content="This guide walks through the process of developing an R packages for Predator Free New Zealand 2050" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Documentation | Package Development in R for Predator Free New Zealand 2050" />
+  <meta name="twitter:title" content="3 Documentation | Package Development in R" />
   
-  <meta name="twitter:description" content="This guide walks through the process of developing an R package" />
+  <meta name="twitter:description" content="This guide walks through the process of developing an R packages for Predator Free New Zealand 2050" />
   
 
 <meta name="author" content="Anthony Davidson" />
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="testing.html"/>
+<link rel="prev" href="package-development.html"/>
 <link rel="next" href="resources.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -136,36 +136,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">An R package development tutorial</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#table-of-contents"><i class="fa fa-check"></i>Table of Contents</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#table-of-contents"><i class="fa fa-check"></i>Table of Contents</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="package-development.html"><a href="package-development.html"><i class="fa fa-check"></i><b>1</b> Package Development</a>
+<li class="chapter" data-level="2" data-path="package-development.html"><a href="package-development.html"><i class="fa fa-check"></i><b>2</b> Package Development</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="package-development.html"><a href="package-development.html#downloading-development-tools"><i class="fa fa-check"></i><b>1.1</b> Downloading Development Tools</a></li>
-<li class="chapter" data-level="1.2" data-path="package-development.html"><a href="package-development.html#initializing-the-package"><i class="fa fa-check"></i><b>1.2</b> Initializing the Package</a></li>
-<li class="chapter" data-level="1.3" data-path="package-development.html"><a href="package-development.html#file-paths"><i class="fa fa-check"></i><b>1.3</b> File Paths</a></li>
-<li class="chapter" data-level="1.4" data-path="package-development.html"><a href="package-development.html#the-description"><i class="fa fa-check"></i><b>1.4</b> The DESCRIPTION</a></li>
-<li class="chapter" data-level="1.5" data-path="package-development.html"><a href="package-development.html#writing-code"><i class="fa fa-check"></i><b>1.5</b> Writing Code</a>
+<li class="chapter" data-level="2.1" data-path="package-development.html"><a href="package-development.html#downloading-development-tools"><i class="fa fa-check"></i><b>2.1</b> Downloading Development Tools</a></li>
+<li class="chapter" data-level="2.2" data-path="package-development.html"><a href="package-development.html#initializing-the-package"><i class="fa fa-check"></i><b>2.2</b> Initializing the Package</a></li>
+<li class="chapter" data-level="2.3" data-path="package-development.html"><a href="package-development.html#file-paths"><i class="fa fa-check"></i><b>2.3</b> File Paths</a></li>
+<li class="chapter" data-level="2.4" data-path="package-development.html"><a href="package-development.html#the-description"><i class="fa fa-check"></i><b>2.4</b> The DESCRIPTION</a></li>
+<li class="chapter" data-level="2.5" data-path="package-development.html"><a href="package-development.html#writing-code"><i class="fa fa-check"></i><b>2.5</b> Writing Code</a>
 <ul>
-<li class="chapter" data-level="1.5.1" data-path="package-development.html"><a href="package-development.html#general-coding-guidelines"><i class="fa fa-check"></i><b>1.5.1</b> General Coding Guidelines</a></li>
-<li class="chapter" data-level="1.5.2" data-path="package-development.html"><a href="package-development.html#code-style"><i class="fa fa-check"></i><b>1.5.2</b> Code Style</a></li>
-<li class="chapter" data-level="1.5.3" data-path="package-development.html"><a href="package-development.html#warnings-and-simplicity"><i class="fa fa-check"></i><b>1.5.3</b> Warnings and Simplicity</a></li>
-<li class="chapter" data-level="1.5.4" data-path="package-development.html"><a href="package-development.html#loading-your-code"><i class="fa fa-check"></i><b>1.5.4</b> Loading Your Code</a></li>
+<li class="chapter" data-level="2.5.1" data-path="package-development.html"><a href="package-development.html#general-coding-guidelines"><i class="fa fa-check"></i><b>2.5.1</b> General Coding Guidelines</a></li>
+<li class="chapter" data-level="2.5.2" data-path="package-development.html"><a href="package-development.html#code-style"><i class="fa fa-check"></i><b>2.5.2</b> Code Style</a></li>
+<li class="chapter" data-level="2.5.3" data-path="package-development.html"><a href="package-development.html#warnings-and-simplicity"><i class="fa fa-check"></i><b>2.5.3</b> Warnings and Simplicity</a></li>
+<li class="chapter" data-level="2.5.4" data-path="package-development.html"><a href="package-development.html#loading-your-code"><i class="fa fa-check"></i><b>2.5.4</b> Loading Your Code</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="testing.html"><a href="testing.html"><i class="fa fa-check"></i><b>2</b> Testing</a>
+<li class="chapter" data-level="2.6" data-path="package-development.html"><a href="package-development.html#why-should-you-test"><i class="fa fa-check"></i><b>2.6</b> Why should you test?</a></li>
+<li class="chapter" data-level="2.7" data-path="package-development.html"><a href="package-development.html#what-are-unit-tests"><i class="fa fa-check"></i><b>2.7</b> What are unit tests?</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="testing.html"><a href="testing.html#why-should-you-test"><i class="fa fa-check"></i><b>2.1</b> Why should you test?</a></li>
-<li class="chapter" data-level="2.2" data-path="testing.html"><a href="testing.html#what-are-unit-tests"><i class="fa fa-check"></i><b>2.2</b> What are unit tests?</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="testing.html"><a href="testing.html#setting-up-the-testing-environment"><i class="fa fa-check"></i><b>2.2.1</b> Setting up the testing environment</a></li>
-<li class="chapter" data-level="2.2.2" data-path="testing.html"><a href="testing.html#expectations"><i class="fa fa-check"></i><b>2.2.2</b> Expectations</a></li>
-<li class="chapter" data-level="2.2.3" data-path="testing.html"><a href="testing.html#structure-and-location-of-unit-tests"><i class="fa fa-check"></i><b>2.2.3</b> Structure and Location of Unit Tests</a></li>
-<li class="chapter" data-level="2.2.4" data-path="testing.html"><a href="testing.html#writing-good-tests"><i class="fa fa-check"></i><b>2.2.4</b> Writing Good Tests</a></li>
-<li class="chapter" data-level="2.2.5" data-path="testing.html"><a href="testing.html#automated-checking"><i class="fa fa-check"></i><b>2.2.5</b> Automated Checking</a></li>
-<li class="chapter" data-level="2.2.6" data-path="testing.html"><a href="testing.html#bonus-the-goodpractice-package"><i class="fa fa-check"></i><b>2.2.6</b> Bonus: The goodpractice Package</a></li>
-<li class="chapter" data-level="2.2.7" data-path="testing.html"><a href="testing.html#tips-and-tricks"><i class="fa fa-check"></i><b>2.2.7</b> Tips and Tricks</a></li>
+<li class="chapter" data-level="2.7.1" data-path="package-development.html"><a href="package-development.html#setting-up-the-testing-environment"><i class="fa fa-check"></i><b>2.7.1</b> Setting up the testing environment</a></li>
+<li class="chapter" data-level="2.7.2" data-path="package-development.html"><a href="package-development.html#expectations"><i class="fa fa-check"></i><b>2.7.2</b> Expectations</a></li>
+<li class="chapter" data-level="2.7.3" data-path="package-development.html"><a href="package-development.html#structure-and-location-of-unit-tests"><i class="fa fa-check"></i><b>2.7.3</b> Structure and Location of Unit Tests</a></li>
+<li class="chapter" data-level="2.7.4" data-path="package-development.html"><a href="package-development.html#writing-good-tests"><i class="fa fa-check"></i><b>2.7.4</b> Writing Good Tests</a></li>
+<li class="chapter" data-level="2.7.5" data-path="package-development.html"><a href="package-development.html#automated-checking"><i class="fa fa-check"></i><b>2.7.5</b> Automated Checking</a></li>
+<li class="chapter" data-level="2.7.6" data-path="package-development.html"><a href="package-development.html#bonus-the-goodpractice-package"><i class="fa fa-check"></i><b>2.7.6</b> Bonus: The goodpractice Package</a></li>
+<li class="chapter" data-level="2.7.7" data-path="package-development.html"><a href="package-development.html#tips-and-tricks"><i class="fa fa-check"></i><b>2.7.7</b> Tips and Tricks</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="documentation.html"><a href="documentation.html"><i class="fa fa-check"></i><b>3</b> Documentation</a>
@@ -208,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Package Development in R for Predator Free New Zealand 2050</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Package Development in R</a>
           </h1>
         </div>
 
@@ -223,36 +221,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.1</span> Documenting Functions</h2>
 <p>Note: here, we describe how to document functions. For a more detailed description of how to document S3, S4, and reference classes, check out <a href="http://r-pkgs.had.co.nz/man.html">this page</a>.</p>
 <p>To understand how to use <code>Roxygen2</code>, it’s best to start with an example. Consider the following code, which generates the documentation for the <code>general_sqrt()</code> function above.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="documentation.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Generalized Square Roots</span></span>
-<span id="cb46-2"><a href="documentation.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb46-3"><a href="documentation.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; \code{general_sqrt} returns the square root of any real number</span></span>
-<span id="cb46-4"><a href="documentation.html#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb46-5"><a href="documentation.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param x A real number - integers or doubles are both acceptable.</span></span>
-<span id="cb46-6"><a href="documentation.html#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @return A complex value. If x is positive, the imaginary component is equal to 0;</span></span>
-<span id="cb46-7"><a href="documentation.html#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; if x is negative, the real component is equal to 0.</span></span>
-<span id="cb46-8"><a href="documentation.html#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb46-9"><a href="documentation.html#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
-<span id="cb46-10"><a href="documentation.html#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; general_sqrt(10)</span></span>
-<span id="cb46-11"><a href="documentation.html#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; general_sqrt(-10)</span></span>
-<span id="cb46-12"><a href="documentation.html#cb46-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; general_sqrt(-1)</span></span>
-<span id="cb46-13"><a href="documentation.html#cb46-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb46-14"><a href="documentation.html#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
-<span id="cb46-15"><a href="documentation.html#cb46-15" aria-hidden="true" tabindex="-1"></a><span class="co"># This function takes the complex square root of real numbers</span></span>
-<span id="cb46-16"><a href="documentation.html#cb46-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-17"><a href="documentation.html#cb46-17" aria-hidden="true" tabindex="-1"></a>general_sqrt <span class="ot">&lt;-</span> <span class="cf">function</span> (x) {</span>
-<span id="cb46-18"><a href="documentation.html#cb46-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-19"><a href="documentation.html#cb46-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return the normal square root if x &gt; 0</span></span>
-<span id="cb46-20"><a href="documentation.html#cb46-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">||</span> x <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb46-21"><a href="documentation.html#cb46-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">complex</span>(<span class="at">real=</span><span class="fu">sqrt</span>(x), <span class="at">imaginary=</span><span class="dv">0</span>))</span>
-<span id="cb46-22"><a href="documentation.html#cb46-22" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb46-23"><a href="documentation.html#cb46-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-24"><a href="documentation.html#cb46-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Else return the complex square root</span></span>
-<span id="cb46-25"><a href="documentation.html#cb46-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-26"><a href="documentation.html#cb46-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> {</span>
-<span id="cb46-27"><a href="documentation.html#cb46-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">complex</span>(<span class="at">real =</span> <span class="dv">0</span>, <span class="at">imaginary =</span> <span class="fu">sqrt</span>(<span class="sc">-</span>x)))</span>
-<span id="cb46-28"><a href="documentation.html#cb46-28" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb46-29"><a href="documentation.html#cb46-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-30"><a href="documentation.html#cb46-30" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="documentation.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Generalized Square Roots</span></span>
+<span id="cb47-2"><a href="documentation.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb47-3"><a href="documentation.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; \code{general_sqrt} returns the square root of any real number</span></span>
+<span id="cb47-4"><a href="documentation.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb47-5"><a href="documentation.html#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param x A real number - integers or doubles are both acceptable.</span></span>
+<span id="cb47-6"><a href="documentation.html#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @return A complex value. If x is positive, the imaginary component is equal to 0;</span></span>
+<span id="cb47-7"><a href="documentation.html#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; if x is negative, the real component is equal to 0.</span></span>
+<span id="cb47-8"><a href="documentation.html#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb47-9"><a href="documentation.html#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
+<span id="cb47-10"><a href="documentation.html#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; general_sqrt(10)</span></span>
+<span id="cb47-11"><a href="documentation.html#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; general_sqrt(-10)</span></span>
+<span id="cb47-12"><a href="documentation.html#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; general_sqrt(-1)</span></span>
+<span id="cb47-13"><a href="documentation.html#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb47-14"><a href="documentation.html#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
+<span id="cb47-15"><a href="documentation.html#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="co"># This function takes the complex square root of real numbers</span></span>
+<span id="cb47-16"><a href="documentation.html#cb47-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-17"><a href="documentation.html#cb47-17" aria-hidden="true" tabindex="-1"></a>general_sqrt <span class="ot">&lt;-</span> <span class="cf">function</span> (x) {</span>
+<span id="cb47-18"><a href="documentation.html#cb47-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-19"><a href="documentation.html#cb47-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return the normal square root if x &gt; 0</span></span>
+<span id="cb47-20"><a href="documentation.html#cb47-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">||</span> x <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb47-21"><a href="documentation.html#cb47-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">complex</span>(<span class="at">real=</span><span class="fu">sqrt</span>(x), <span class="at">imaginary=</span><span class="dv">0</span>))</span>
+<span id="cb47-22"><a href="documentation.html#cb47-22" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb47-23"><a href="documentation.html#cb47-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-24"><a href="documentation.html#cb47-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Else return the complex square root</span></span>
+<span id="cb47-25"><a href="documentation.html#cb47-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-26"><a href="documentation.html#cb47-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> {</span>
+<span id="cb47-27"><a href="documentation.html#cb47-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">complex</span>(<span class="at">real =</span> <span class="dv">0</span>, <span class="at">imaginary =</span> <span class="fu">sqrt</span>(<span class="sc">-</span>x)))</span>
+<span id="cb47-28"><a href="documentation.html#cb47-28" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb47-29"><a href="documentation.html#cb47-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-30"><a href="documentation.html#cb47-30" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p><img src="images/packageSS/gensqrtdoc.PNG" /></p>
 <p>Inside the R script, the documentation appears right above the definition of the function - this is helpful because it will help you remember to keep your documentations/functions up to date with each other. Let’s work through how this documentation was generated.</p>
 <ol style="list-style-type: decimal">
@@ -265,7 +263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Note that most functions you write won’t be exported - for example, if you write a helper function like <code>loss()</code> which is only used in service of a larger function, it shouldn’t be exported (exporting too many functions ‘clutters’ the namespace).</p>
 <p>Once you’ve written all your documentation, it’s fairly simple to check what it looks like. Simply run the following function:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="documentation.html#cb47-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="documentation.html#cb48-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()</span></code></pre></div>
 <p>which will automatically generate your documentation. Then, if you’ve documented a function, you can type <code>?function-name</code> into the console, and the documentation should automatically pop up!</p>
 <p>After documenting your package, you can also click the ‘/man’ folder to inspect the documentation html files <code>Roxygen2</code> generates, but it probably won’t be more informative than simply typing <code>?function-name</code> into the console.</p>
 <div id="adding-a-readme" class="section level3" number="3.1.1">
@@ -290,7 +288,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Documentation is useful, but not necessarily a comprehensive guide to your package. You may want to include details about your implementation, extra examples, and more organization than your documentation provides, which is exactly what vignettes are for.</p>
 <p><strong>Vignettes</strong> are basically articles which motivate and describe your packages. They are generally written in RMarkdown, which allows you to mix code, mathematical equations, and formatted text with ease. If you are using RStudio, then writing vignettes will be very easy, because RMarkdown works automatically with RStudio. On the other hand, if you don’t have RStudio, you will need to (i) run the ‘install.packages(“rmarkdown”)’ command, and (ii) install <a href="http://pandoc.org/installing.html">pandoc</a>.</p>
 <p>To write a vignette, start by running the <code>use_vignette()</code> function from the <code>usethis</code> package:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="documentation.html#cb48-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_vignette</span>(<span class="st">&#39;vignette-name&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="documentation.html#cb49-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_vignette</span>(<span class="st">&#39;vignette-name&#39;</span>)</span></code></pre></div>
 <p>This function will create a ‘vignettes’ subdirectory and populate it with a file based on the name you specified. The file should look something like this:</p>
 <p><img src="images/packageSS/vignette1.PNG" /></p>
 <p>The top of the file, between the two lines of dashes, is written in the YAML language. It’s simply a convenient way to specify metadata about a vignette, and you should fill in the title and author fields.</p>
@@ -308,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p><img src="images/packageSS/vignettecode.PNG" /></p>
 <p>Once you’ve modified your vignette, you can <em>knit</em> it into a beautiful HTML document by running the following function in the console:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="documentation.html#cb49-1" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">&#39;path/to/rmarkdown/file.Rmd&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="documentation.html#cb50-1" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">&#39;path/to/rmarkdown/file.Rmd&#39;</span>)</span></code></pre></div>
 <p>If you do choose to write vignettes, remember that it’s critical to motivate <em>why</em> you wrote your package in the first place. Additionally, you should structure the vignette so that it gives users an impression of the overarching structure of the package itself (i.e. group and organize your functions!).</p>
 </div>
 <div id="adding-and-documenting-data" class="section level2" number="3.3">
@@ -318,36 +316,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">3.3.1</span> Including data which should be available to users</h3>
 <p>All of the data you want to be available to users should be saved in a folder called ‘data’ inside your project. The way to do this is to write and run a script which loads your data into R and then uses the <code>usethis</code> function <code>use_data()</code> to save it to a path inside ‘data’. Even if you do not already have a folder called ‘data’ in your package, the <code>use_data()</code> function will make it for you. Note that for this to work, your working directory must be set to the package you’re writing, otherwise <code>usethis</code> won’t know where to put your data.</p>
 <p>For example, when documenting the <code>scalep()</code> function, one might want to include data as an example of a way to use <code>scalep()</code>. To this end, we can use the built-in R dataset <code>mtcars</code> and include it in the package.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="documentation.html#cb50-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_data</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="documentation.html#cb51-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_data</span>(mtcars)</span></code></pre></div>
 <p>In this way, you can include in your package any data you want, providing it has been stored in an R object. Data in your ‘data’ folder will effectively always be exported, so you always must document it. To document data, you should create an R Script in your ‘R’ directory called [‘data.R’] and use <code>Roxygen2</code> to document the data similarly to the way you’d document a function. For example, one might document the aforementioned data in the following way:</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="documentation.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Motor trend car road tests dataset</span></span>
-<span id="cb51-2"><a href="documentation.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb51-3"><a href="documentation.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; This dataset lists the properties of 32 motorcars</span></span>
-<span id="cb51-4"><a href="documentation.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb51-5"><a href="documentation.html#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @format A dataframe with 32 rows and 11 columns.</span></span>
-<span id="cb51-6"><a href="documentation.html#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; \describe{</span></span>
-<span id="cb51-7"><a href="documentation.html#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{mpg}{Mile per gallon}</span></span>
-<span id="cb51-8"><a href="documentation.html#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{cyl}{Number of cylinders}</span></span>
-<span id="cb51-9"><a href="documentation.html#cb51-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{disp}{Displacement (cu.in)}</span></span>
-<span id="cb51-10"><a href="documentation.html#cb51-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{hp}{Gross horsepower}</span></span>
-<span id="cb51-11"><a href="documentation.html#cb51-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{drat}{Rear axle ratio}</span></span>
-<span id="cb51-12"><a href="documentation.html#cb51-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{wt}{Weight (1000 lbs)}</span></span>
-<span id="cb51-13"><a href="documentation.html#cb51-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{qsec}{1/4 mile time}</span></span>
-<span id="cb51-14"><a href="documentation.html#cb51-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{vs}{Engine: (0 = V-shaped, 1 = straight)}</span></span>
-<span id="cb51-15"><a href="documentation.html#cb51-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{am}{Transmission: (0 = automatic, 1 = manual)}</span></span>
-<span id="cb51-16"><a href="documentation.html#cb51-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{gear}{Number of forward gears}</span></span>
-<span id="cb51-17"><a href="documentation.html#cb51-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{carb}{Number of carburetors}</span></span>
-<span id="cb51-18"><a href="documentation.html#cb51-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;}</span></span>
-<span id="cb51-19"><a href="documentation.html#cb51-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @source This dataset is a built-in R dataset and is</span></span>
-<span id="cb51-20"><a href="documentation.html#cb51-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; intended only to be used as an example for package development.</span></span>
-<span id="cb51-21"><a href="documentation.html#cb51-21" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;mtcars&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="documentation.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Motor trend car road tests dataset</span></span>
+<span id="cb52-2"><a href="documentation.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb52-3"><a href="documentation.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; This dataset lists the properties of 32 motorcars</span></span>
+<span id="cb52-4"><a href="documentation.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb52-5"><a href="documentation.html#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @format A dataframe with 32 rows and 11 columns.</span></span>
+<span id="cb52-6"><a href="documentation.html#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; \describe{</span></span>
+<span id="cb52-7"><a href="documentation.html#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{mpg}{Mile per gallon}</span></span>
+<span id="cb52-8"><a href="documentation.html#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{cyl}{Number of cylinders}</span></span>
+<span id="cb52-9"><a href="documentation.html#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{disp}{Displacement (cu.in)}</span></span>
+<span id="cb52-10"><a href="documentation.html#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{hp}{Gross horsepower}</span></span>
+<span id="cb52-11"><a href="documentation.html#cb52-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{drat}{Rear axle ratio}</span></span>
+<span id="cb52-12"><a href="documentation.html#cb52-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{wt}{Weight (1000 lbs)}</span></span>
+<span id="cb52-13"><a href="documentation.html#cb52-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{qsec}{1/4 mile time}</span></span>
+<span id="cb52-14"><a href="documentation.html#cb52-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{vs}{Engine: (0 = V-shaped, 1 = straight)}</span></span>
+<span id="cb52-15"><a href="documentation.html#cb52-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{am}{Transmission: (0 = automatic, 1 = manual)}</span></span>
+<span id="cb52-16"><a href="documentation.html#cb52-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{gear}{Number of forward gears}</span></span>
+<span id="cb52-17"><a href="documentation.html#cb52-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{carb}{Number of carburetors}</span></span>
+<span id="cb52-18"><a href="documentation.html#cb52-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;}</span></span>
+<span id="cb52-19"><a href="documentation.html#cb52-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @source This dataset is a built-in R dataset and is</span></span>
+<span id="cb52-20"><a href="documentation.html#cb52-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; intended only to be used as an example for package development.</span></span>
+<span id="cb52-21"><a href="documentation.html#cb52-21" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;mtcars&quot;</span></span></code></pre></div>
 <p>This should all look pretty similar to documenting functions. Note that ‘format’ is a tag which will allow you to describe the structure of a dataset, and it’s good practice to list what each column measures in this section. The ‘source’ section describes where the data came from. Never write ‘export’ in this section, as data here is already automatically exported.</p>
 </div>
 <div id="including-data-for-your-functions" class="section level3" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> Including data for your functions</h3>
 <p>Some functions may rely on a large, predefined set of coefficients or other inputs which need to be included in the package. However, users shouldn’t generally have access to such data because otherwise they might accidentally radically change the way your function works. It’s best to put such data in ‘R/sysdata.rda’, because then users won’t easily be able to access and accidentally modify it. As before, the way to include data in this way is to write a script which loads the data into R and then use the <code>use_data()</code> function to save it, but you should also include a parameter <code>internal = TRUE</code> in the function call to let R know that this is interior, not exterior, data. For example, if a function depends on a matrix called “coefficients”, one might run the following code:</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="documentation.html#cb52-1" aria-hidden="true" tabindex="-1"></a>coefficients <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;Users/name/Documents/R/coefs.csv&#39;</span>)</span>
-<span id="cb52-2"><a href="documentation.html#cb52-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_data</span>(coefficients, <span class="at">internal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="documentation.html#cb53-1" aria-hidden="true" tabindex="-1"></a>coefficients <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;Users/name/Documents/R/coefs.csv&#39;</span>)</span>
+<span id="cb53-2"><a href="documentation.html#cb53-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_data</span>(coefficients, <span class="at">internal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Data in ‘R/sysdata.rda’ is never exported, so there’s no need to document it.</p>
 </div>
 </div>
@@ -363,13 +361,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>On the other hand, if you’ve written a larger package which you would like to distribute to the entire R community, you might consider submitting it to <a href="https://cran.r-project.org/">CRAN</a>, the Comprehensive R Archive Network. CRAN is basically the official package authority designated by the R community, and successfully adding your package to CRAN will make it more legitimate as well as easier for R users to find and install.</p>
 <p>Logistically, submitting your package to CRAN is pretty simple. The first step is to <strong>build</strong> your package, which means bundling it into a format that is easy to distribute and easy for users to install.</p>
 <p>The best way to build your package is to zip it as a .tar.gz file. <code>devtools</code> will do this for you if you run the following command:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="documentation.html#cb53-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build</span>(<span class="at">binary =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="documentation.html#cb54-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build</span>(<span class="at">binary =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p>and then you should see a tar.gz file pop up just outside your working directory.</p>
 <p>The next step is to submit the bundled file to CRAN <a href="https://cran.r-project.org/submit.html">at the link here</a>, along with a couple of comments. Although this seems pretty simple, in actuality, CRAN has very high standards for packages, so it can be rather tricky to get a package accepted. CRAN’s specific standards are beyond the scope of the current iteration of this guide, but if you decide you want to publish a package on CRAN, you should read <a href="http://r-pkgs.had.co.nz/release.html">Hadley Wickham’s advice on the subject</a> <strong>very carefully.</strong></p>
 <div id="optional-building-precompiled-binaries" class="section level4" number="3.4.2.1">
 <h4><span class="header-section-number">3.4.2.1</span> Optional: Building precompiled binaries</h4>
 <p>tar.gz files are useful because anyone who has a working R development environment can install and unzip your package, regardless of their operating system. However, you do need a development environment to install packages built as tar.gz files, and some users (in particular on Windows) may not have development environments set up yet. To address this potential issue, another way to build your package is as a <strong>precompiled binary file</strong>. Precompiled binaries are useful because unlike tar.gz files, they do not require a development environment to install. However, they are platform specific: a precompiled binary built by a Windows machine can’t be installed on Mac machine. Although tar.gz files are much more common, if you do want to build a binary, you can just change an argument of <code>devtools::build()</code>:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="documentation.html#cb54-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build</span>(<span class="at">binary =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="documentation.html#cb55-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build</span>(<span class="at">binary =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>and your precompiled binary will be built.</p>
 </div>
 </div>
@@ -395,7 +393,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="testing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="package-development.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -438,7 +436,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["PFNZpackageDEV.pdf", "PFNZpackageDEV.epub"],
+"download": ["RpackagesDev.pdf", "RpackagesDev.epub"],
 "search": {
 "engine": "fuse",
 "options": null

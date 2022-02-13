@@ -1,20 +1,34 @@
 ---
-title: "Package Development in R for Predator Free New Zealand 2050"
+title: "Package Development in R"
 author: "Anthony Davidson"
 date: "January 2022"
-description: "This guide walks through the process of developing an R package"
+description: "This guide walks through the process of developing an R packages for Predator Free New Zealand 2050"
 site: "bookdown::bookdown_site"
 documentclass: book
-geometry: "margin=1.5in"
 biblio-style: apalike
 link-citations: yes
 ---
 
+
+```r
+knitr:::opts_knit$set(bookdown = TRUE)
+```
+
+# Overview
+
+This project includes the resources I have used to learn how to develop packages in R that are scalable. Part of this learning curve I have been on includes the ability to publish and maintain a package on CRAN with less effort than previously avaliable.
+
 # Introduction {-}
 
-Reproducibility and package development are one and the same in many aspects
+Reproducibility and package development are one and the same in many aspects.
 
 I have taken the guide generated at [https://iqss.github.io/dss-rbuild/](https://iqss.github.io/dss-rbuild/) for my PhD work and future package development.
+
+The other great guide for this aspect of R coding is the `r-pkg-dev` avaliable here: ....
+
+[Here's a link to a great devtools cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/devtools-cheatsheet.pdf) which puts most of the useful commands in this guide in one place.
+
+Other supporting resources include R4Data Science by Hadley Wickham and many others.... resources coming...
 
 ## Table of Contents {-}
 
@@ -22,16 +36,15 @@ This guide is organized into three parts.
 
 1. First, we'll run through [The proper way to structure and test packages](./package-development.html).
 
-2. Second, we'll discuss [Version Control with Git and GitHub](./version-control.html)
+I also incorperate the small demo R package called `devex` which you can find linked [here, on GitHub](https://github.com/IQSS/dss-rbuild/tree/master/devex).
 
-3. Lastly, we'll [briefly look at a couple of IDEs](./integrated-development-environments.html), which are just pieces of software that make it easier to write packages.
-
-[Here's a link to a great devtools cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/03/devtools-cheatsheet.pdf) which puts most of the useful commands in this guide in one place.
-
+The two aspects below are important to this work and the above guide assumes a general understanding of git and GUIs however I will develop the sections below in a similar style if needed (for myself or others).
 
 > NOTE 2022: I hope to do this for PFNZ 2050 too
 
-We also wrote a small development example package (called `devex`) which you can find linked [here, on GitHub](https://github.com/IQSS/dss-rbuild/tree/master/devex). If you haven't used GitHub yet, don't worry - we'll go over how to use GitHub later.
+2. Second, we'll discuss [Version Control with Git and GitHub](./version-control.html)
+
+3. Lastly, we'll [briefly look at a couple of IDEs](./integrated-development-environments.html), which are just pieces of software that make it easier to write packages.
 
 Also, this guide is still under development, and we take feedback! If you find anything confusing or think the guide misses important content, please email `help@iq.harvard.edu`
 

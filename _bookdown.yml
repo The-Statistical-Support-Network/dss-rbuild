@@ -1,4 +1,4 @@
-book_filename: 'PFNZpackageDEV'
+book_filename: 'RpackagesDev'
 
 output_dir: docs
 
@@ -13,6 +13,6 @@ rmd_files:
 
 delete_merged_file: true
 
-clean: [packages.bib, bookdown.bbl]
-
-new_session: yes
+# clean: [packages.bib, bookdown.bbl]
+# 
+# new_session: yes

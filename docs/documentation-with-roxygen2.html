@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Documentation with Roxygen2 | Package Development in R</title>
+  <meta name="description" content="This guide walks through the process of developing an R packages for Predator Free New Zealand 2050" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Documentation with Roxygen2 | Package Development in R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This guide walks through the process of developing an R packages for Predator Free New Zealand 2050" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Documentation with Roxygen2 | Package Development in R" />
+  
+  <meta name="twitter:description" content="This guide walks through the process of developing an R packages for Predator Free New Zealand 2050" />
+  
+
+<meta name="author" content="Anthony Davidson" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="package-development.html"/>
+<link rel="next" href="resources.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">An R package development tutorial</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Overview</a></li>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i>Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="introduction.html"><a href="introduction.html#table-of-contents"><i class="fa fa-check"></i>Table of Contents</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="package-development.html"><a href="package-development.html"><i class="fa fa-check"></i><b>2</b> Package Development</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="package-development.html"><a href="package-development.html#downloading-development-tools"><i class="fa fa-check"></i><b>2.1</b> Downloading Development Tools</a></li>
+<li class="chapter" data-level="2.2" data-path="package-development.html"><a href="package-development.html#initializing-the-package"><i class="fa fa-check"></i><b>2.2</b> Initializing the Package</a></li>
+<li class="chapter" data-level="2.3" data-path="package-development.html"><a href="package-development.html#file-paths"><i class="fa fa-check"></i><b>2.3</b> File Paths</a></li>
+<li class="chapter" data-level="2.4" data-path="package-development.html"><a href="package-development.html#the-description"><i class="fa fa-check"></i><b>2.4</b> The DESCRIPTION</a></li>
+<li class="chapter" data-level="2.5" data-path="package-development.html"><a href="package-development.html#writing-code"><i class="fa fa-check"></i><b>2.5</b> Writing Code</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="package-development.html"><a href="package-development.html#general-coding-guidelines"><i class="fa fa-check"></i><b>2.5.1</b> General Coding Guidelines</a></li>
+<li class="chapter" data-level="2.5.2" data-path="package-development.html"><a href="package-development.html#code-style"><i class="fa fa-check"></i><b>2.5.2</b> Code Style</a></li>
+<li class="chapter" data-level="2.5.3" data-path="package-development.html"><a href="package-development.html#warnings-and-simplicity"><i class="fa fa-check"></i><b>2.5.3</b> Warnings and Simplicity</a></li>
+<li class="chapter" data-level="2.5.4" data-path="package-development.html"><a href="package-development.html#loading-your-code"><i class="fa fa-check"></i><b>2.5.4</b> Loading Your Code</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="package-development.html"><a href="package-development.html#why-should-you-test"><i class="fa fa-check"></i><b>2.6</b> Why should you test?</a></li>
+<li class="chapter" data-level="2.7" data-path="package-development.html"><a href="package-development.html#what-are-unit-tests"><i class="fa fa-check"></i><b>2.7</b> What are unit tests?</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="package-development.html"><a href="package-development.html#setting-up-the-testing-environment"><i class="fa fa-check"></i><b>2.7.1</b> Setting up the testing environment</a></li>
+<li class="chapter" data-level="2.7.2" data-path="package-development.html"><a href="package-development.html#expectations"><i class="fa fa-check"></i><b>2.7.2</b> Expectations</a></li>
+<li class="chapter" data-level="2.7.3" data-path="package-development.html"><a href="package-development.html#structure-and-location-of-unit-tests"><i class="fa fa-check"></i><b>2.7.3</b> Structure and Location of Unit Tests</a></li>
+<li class="chapter" data-level="2.7.4" data-path="package-development.html"><a href="package-development.html#writing-good-tests"><i class="fa fa-check"></i><b>2.7.4</b> Writing Good Tests</a></li>
+<li class="chapter" data-level="2.7.5" data-path="package-development.html"><a href="package-development.html#automated-checking"><i class="fa fa-check"></i><b>2.7.5</b> Automated Checking</a></li>
+<li class="chapter" data-level="2.7.6" data-path="package-development.html"><a href="package-development.html#bonus-the-goodpractice-package"><i class="fa fa-check"></i><b>2.7.6</b> Bonus: The goodpractice Package</a></li>
+<li class="chapter" data-level="2.7.7" data-path="package-development.html"><a href="package-development.html#tips-and-tricks"><i class="fa fa-check"></i><b>2.7.7</b> Tips and Tricks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html"><i class="fa fa-check"></i><b>3</b> Documentation with Roxygen2</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html#documenting-functions"><i class="fa fa-check"></i><b>3.1</b> Documenting Functions</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html#description"><i class="fa fa-check"></i><b>3.1.1</b> DESCRIPTION</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html#function-comments"><i class="fa fa-check"></i><b>3.2</b> Function comments</a></li>
+<li class="chapter" data-level="3.3" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html#adding-and-documenting-data"><i class="fa fa-check"></i><b>3.3</b> Adding and Documenting Data</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html#rds-rdata-and-rda-files"><i class="fa fa-check"></i><b>3.3.1</b> <code>rds</code>, <code>rdata</code> and <code>rda</code> files</a></li>
+<li class="chapter" data-level="3.3.2" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html#roxygen-data"><i class="fa fa-check"></i><b>3.3.2</b> <code>Roxygen</code> data</a></li>
+<li class="chapter" data-level="3.3.3" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html#including-data-which-should-be-available-to-users"><i class="fa fa-check"></i><b>3.3.3</b> Including data which should be available to users</a></li>
+<li class="chapter" data-level="3.3.4" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html#including-data-for-your-functions"><i class="fa fa-check"></i><b>3.3.4</b> Including data for your functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html#readme"><i class="fa fa-check"></i><b>3.4</b> README</a></li>
+<li class="chapter" data-level="3.5" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html#vignettes"><i class="fa fa-check"></i><b>3.5</b> Vignettes</a></li>
+<li class="chapter" data-level="3.6" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html#releasing-your-package"><i class="fa fa-check"></i><b>3.6</b> Releasing Your Package</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html#pushing-to-github"><i class="fa fa-check"></i><b>3.6.1</b> Pushing to GitHub</a></li>
+<li class="chapter" data-level="3.6.2" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html#cran"><i class="fa fa-check"></i><b>3.6.2</b> CRAN</a></li>
+<li class="chapter" data-level="3.6.3" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html#publicizing"><i class="fa fa-check"></i><b>3.6.3</b> Publicizing</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="documentation-with-roxygen2.html"><a href="documentation-with-roxygen2.html#tips-and-tricks-1"><i class="fa fa-check"></i><b>3.7</b> Tips and Tricks</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>4</b> Resources</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="resources.html"><a href="resources.html#dss-authors-and-sources"><i class="fa fa-check"></i><b>4.1</b> <code>dss</code> authors and sources</a></li>
+<li class="chapter" data-level="4.2" data-path="resources.html"><a href="resources.html#general"><i class="fa fa-check"></i><b>4.2</b> General</a></li>
+<li class="chapter" data-level="4.3" data-path="resources.html"><a href="resources.html#package-development-1"><i class="fa fa-check"></i><b>4.3</b> Package Development</a></li>
+<li class="chapter" data-level="4.4" data-path="resources.html"><a href="resources.html#version-control"><i class="fa fa-check"></i><b>4.4</b> Version Control</a></li>
+<li class="chapter" data-level="4.5" data-path="resources.html"><a href="resources.html#ides"><i class="fa fa-check"></i><b>4.5</b> IDEs</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Package Development in R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="documentation-with-roxygen2" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Documentation with Roxygen2</h1>
+<p>Documentation is an absolutely essential part of any package - most people won’t be willing to read your source code to figure out how your functions work. Thankfully, creating documentation for your package is incredibly easy with <code>Roxygen2</code>.</p>
+<div id="documenting-functions" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Documenting Functions</h2>
+<p>Note: here, we describe how to document functions. For a more detailed description of how to document S3, S4, and reference classes, check out <a href="http://r-pkgs.had.co.nz/man.html">this page</a>.</p>
+<p><code>Roxygen</code> is an R package that includes templates and shortcuts for documenting packages. For shiny packages there is now <a href="https://engineering-shiny.org/golem.html">golem</a>. The <code>devtools</code> package is used for building and testing the functions you write and document with <code>Roxygen</code> templates.</p>
+<p>To ensure that you have the correct files to build R packages with <code>Roxygen</code> the following aspects of an R package need to include references to the <code>Roxgyen</code> comments. These are:</p>
+<div id="description" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> DESCRIPTION</h3>
+<p>[notes coming]</p>
+</div>
+</div>
+<div id="function-comments" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Function comments</h2>
+<p>To understand how to use <code>Roxygen2</code>, it’s best to start with an example. Consider the following code, which generates the documentation for the <code>general_sqrt()</code> function above.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="documentation-with-roxygen2.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Generalized Square Roots</span></span>
+<span id="cb47-2"><a href="documentation-with-roxygen2.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb47-3"><a href="documentation-with-roxygen2.html#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; \code{general_sqrt} returns the square root of any real number</span></span>
+<span id="cb47-4"><a href="documentation-with-roxygen2.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb47-5"><a href="documentation-with-roxygen2.html#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param x A real number - integers or doubles are both acceptable.</span></span>
+<span id="cb47-6"><a href="documentation-with-roxygen2.html#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @return A complex value. If x is positive, the imaginary component is equal to 0;</span></span>
+<span id="cb47-7"><a href="documentation-with-roxygen2.html#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; if x is negative, the real component is equal to 0.</span></span>
+<span id="cb47-8"><a href="documentation-with-roxygen2.html#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb47-9"><a href="documentation-with-roxygen2.html#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
+<span id="cb47-10"><a href="documentation-with-roxygen2.html#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; general_sqrt(10)</span></span>
+<span id="cb47-11"><a href="documentation-with-roxygen2.html#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; general_sqrt(-10)</span></span>
+<span id="cb47-12"><a href="documentation-with-roxygen2.html#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; general_sqrt(-1)</span></span>
+<span id="cb47-13"><a href="documentation-with-roxygen2.html#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb47-14"><a href="documentation-with-roxygen2.html#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
+<span id="cb47-15"><a href="documentation-with-roxygen2.html#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="co"># This function takes the complex square root of real numbers</span></span>
+<span id="cb47-16"><a href="documentation-with-roxygen2.html#cb47-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-17"><a href="documentation-with-roxygen2.html#cb47-17" aria-hidden="true" tabindex="-1"></a>general_sqrt <span class="ot">&lt;-</span> <span class="cf">function</span> (x) {</span>
+<span id="cb47-18"><a href="documentation-with-roxygen2.html#cb47-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-19"><a href="documentation-with-roxygen2.html#cb47-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return the normal square root if x &gt; 0</span></span>
+<span id="cb47-20"><a href="documentation-with-roxygen2.html#cb47-20" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">||</span> x <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb47-21"><a href="documentation-with-roxygen2.html#cb47-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">complex</span>(<span class="at">real=</span><span class="fu">sqrt</span>(x), <span class="at">imaginary=</span><span class="dv">0</span>))</span>
+<span id="cb47-22"><a href="documentation-with-roxygen2.html#cb47-22" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb47-23"><a href="documentation-with-roxygen2.html#cb47-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-24"><a href="documentation-with-roxygen2.html#cb47-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Else return the complex square root</span></span>
+<span id="cb47-25"><a href="documentation-with-roxygen2.html#cb47-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-26"><a href="documentation-with-roxygen2.html#cb47-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span> {</span>
+<span id="cb47-27"><a href="documentation-with-roxygen2.html#cb47-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">complex</span>(<span class="at">real =</span> <span class="dv">0</span>, <span class="at">imaginary =</span> <span class="fu">sqrt</span>(<span class="sc">-</span>x)))</span>
+<span id="cb47-28"><a href="documentation-with-roxygen2.html#cb47-28" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb47-29"><a href="documentation-with-roxygen2.html#cb47-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-30"><a href="documentation-with-roxygen2.html#cb47-30" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="images/packageSS/gensqrtdoc.PNG" /></p>
+<p>Inside the R script, the documentation appears right above the definition of the function - this is helpful because it will help you remember to keep your documentations/functions up to date with each other. Let’s work through how this documentation was generated.</p>
+<ol style="list-style-type: decimal">
+<li><p>Note that everything you write in <code>Roxygen2</code> should be preceded by a #’ character combo. This signals to the R environment that you’re writing documentation, not code.</p></li>
+<li><p>You should start your documentation with a very short (2-4 word) title of the function. In the example given above, the <code>general_sqrt()</code> function is titled “Generalized Square Roots.”</p></li>
+<li><p>You should describe your functions’ parameters using the ‘param’ signifier. This should succinctly describe the type (i.e. double, integer, character) of the parameter, as well as its function, as well as any potential default value.</p></li>
+<li><p>You should document the type of output your function returns. Is it an integer, a dataframe, a matrix? Does it depend on the input? Your documentation should answer these questions!</p></li>
+<li><p>You <em>must</em> provide examples of your function’s use. These are pretty critical, because a lot of programmers will just skip straight to the examples (and only look at the rest of the documentation if the examples are unclear).</p></li>
+<li><p>You may choose to write ‘export’ at the end of your documentation block. You should only do this if you want other people to use the function that you’re exporting, because exporting it will make sure it shows up in the <strong>namespace</strong>, a document that makes sure your package works in combination with other packages. For example, if your package includes data labelled ‘lm’, the namespace will prevent errors when using that data in combination with the R stats package (which has a function called ‘lm’) and will <em>not</em> throw an error. The <a href="http://r-pkgs.had.co.nz/namespace.html">exact mechanics of the namespace</a> are slightly beyond the scope of this guide, but thankfully <code>Roxygen2</code> will automatically generate a namespace for you when you create documentation with “export” tags.</p></li>
+</ol>
+<p>Note that most functions you write won’t be exported - for example, if you write a helper function like <code>loss()</code> which is only used in service of a larger function, it shouldn’t be exported (exporting too many functions ‘clutters’ the namespace).</p>
+<p>Once you’ve written all your documentation, it’s fairly simple to check what it looks like. Simply run the following function:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="documentation-with-roxygen2.html#cb48-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()</span></code></pre></div>
+<p>which will automatically generate your documentation. Then, if you’ve documented a function, you can type <code>?function-name</code> into the console, and the documentation should automatically pop up!</p>
+<p>After documenting your package, you can also click the ‘/man’ folder to inspect the documentation html files <code>Roxygen2</code> generates, but it probably won’t be more informative than simply typing <code>?function-name</code> into the console.</p>
+</div>
+<div id="adding-and-documenting-data" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Adding and Documenting Data</h2>
+<p>Sometimes, you’ll want to include data as part of your package, either to serve as an example for users or because your functions need it to work. This is totally optional - not all packages need to include data - but can be useful, so let’s walk through how to include (and document) data in your package. Note that there are at least two kinds of data you should think about including, but for both kinds of data, you should generally save them as ‘.rdata’ or ‘.rda’ files (which are the same thing).</p>
+<div id="rds-rdata-and-rda-files" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> <code>rds</code>, <code>rdata</code> and <code>rda</code> files</h3>
+</div>
+<div id="roxygen-data" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> <code>Roxygen</code> data</h3>
+</div>
+<div id="including-data-which-should-be-available-to-users" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Including data which should be available to users</h3>
+<p>All of the data you want to be available to users should be saved in a folder called ‘data’ inside your project. The way to do this is to write and run a script which loads your data into R and then uses the <code>usethis</code> function <code>use_data()</code> to save it to a path inside ‘data’. Even if you do not already have a folder called ‘data’ in your package, the <code>use_data()</code> function will make it for you. Note that for this to work, your working directory must be set to the package you’re writing, otherwise <code>usethis</code> won’t know where to put your data.</p>
+<p>For example, when documenting the <code>scalep()</code> function, one might want to include data as an example of a way to use <code>scalep()</code>. To this end, we can use the built-in R dataset <code>mtcars</code> and include it in the package.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="documentation-with-roxygen2.html#cb49-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_data</span>(mtcars)</span></code></pre></div>
+<p>In this way, you can include in your package any data you want, providing it has been stored in an R object. Data in your ‘data’ folder will effectively always be exported, so you always must document it. To document data, you should create an R Script in your ‘R’ directory called [‘data.R’] and use <code>Roxygen2</code> to document the data similarly to the way you’d document a function. For example, one might document the aforementioned data in the following way:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="documentation-with-roxygen2.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Motor trend car road tests dataset</span></span>
+<span id="cb50-2"><a href="documentation-with-roxygen2.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb50-3"><a href="documentation-with-roxygen2.html#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; This dataset lists the properties of 32 motorcars</span></span>
+<span id="cb50-4"><a href="documentation-with-roxygen2.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb50-5"><a href="documentation-with-roxygen2.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @format A dataframe with 32 rows and 11 columns.</span></span>
+<span id="cb50-6"><a href="documentation-with-roxygen2.html#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; \describe{</span></span>
+<span id="cb50-7"><a href="documentation-with-roxygen2.html#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{mpg}{Mile per gallon}</span></span>
+<span id="cb50-8"><a href="documentation-with-roxygen2.html#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{cyl}{Number of cylinders}</span></span>
+<span id="cb50-9"><a href="documentation-with-roxygen2.html#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{disp}{Displacement (cu.in)}</span></span>
+<span id="cb50-10"><a href="documentation-with-roxygen2.html#cb50-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{hp}{Gross horsepower}</span></span>
+<span id="cb50-11"><a href="documentation-with-roxygen2.html#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{drat}{Rear axle ratio}</span></span>
+<span id="cb50-12"><a href="documentation-with-roxygen2.html#cb50-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{wt}{Weight (1000 lbs)}</span></span>
+<span id="cb50-13"><a href="documentation-with-roxygen2.html#cb50-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{qsec}{1/4 mile time}</span></span>
+<span id="cb50-14"><a href="documentation-with-roxygen2.html#cb50-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{vs}{Engine: (0 = V-shaped, 1 = straight)}</span></span>
+<span id="cb50-15"><a href="documentation-with-roxygen2.html#cb50-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{am}{Transmission: (0 = automatic, 1 = manual)}</span></span>
+<span id="cb50-16"><a href="documentation-with-roxygen2.html#cb50-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{gear}{Number of forward gears}</span></span>
+<span id="cb50-17"><a href="documentation-with-roxygen2.html#cb50-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;   \item{carb}{Number of carburetors}</span></span>
+<span id="cb50-18"><a href="documentation-with-roxygen2.html#cb50-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;}</span></span>
+<span id="cb50-19"><a href="documentation-with-roxygen2.html#cb50-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @source This dataset is a built-in R dataset and is</span></span>
+<span id="cb50-20"><a href="documentation-with-roxygen2.html#cb50-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; intended only to be used as an example for package development.</span></span>
+<span id="cb50-21"><a href="documentation-with-roxygen2.html#cb50-21" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;mtcars&quot;</span></span></code></pre></div>
+<p>This should all look pretty similar to documenting functions. Note that ‘format’ is a tag which will allow you to describe the structure of a dataset, and it’s good practice to list what each column measures in this section. The ‘source’ section describes where the data came from. Never write ‘export’ in this section, as data here is already automatically exported.</p>
+</div>
+<div id="including-data-for-your-functions" class="section level3" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> Including data for your functions</h3>
+<p>Some functions may rely on a large, predefined set of coefficients or other inputs which need to be included in the package. However, users shouldn’t generally have access to such data because otherwise they might accidentally radically change the way your function works. It’s best to put such data in ‘R/sysdata.rda’, because then users won’t easily be able to access and accidentally modify it. As before, the way to include data in this way is to write a script which loads the data into R and then use the <code>use_data()</code> function to save it, but you should also include a parameter <code>internal = TRUE</code> in the function call to let R know that this is interior, not exterior, data. For example, if a function depends on a matrix called “coefficients”, one might run the following code:</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="documentation-with-roxygen2.html#cb51-1" aria-hidden="true" tabindex="-1"></a>coefficients <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&#39;Users/name/Documents/R/coefs.csv&#39;</span>)</span>
+<span id="cb51-2"><a href="documentation-with-roxygen2.html#cb51-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_data</span>(coefficients, <span class="at">internal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<blockquote>
+<p>Data in ‘R/sysdata.rda’ is never exported, so there’s no need to document it.</p>
+</blockquote>
+</div>
+</div>
+<div id="readme" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> README</h2>
+<p>The README file is a bit different than the others, because your package will actually work fine even if you don’t have one. However, if you want other people to use your package, it’s best to have a README. The purpose of a README is basically to bridge the gap between the DESCRIPTION and the actual documentation in your package. In other words, someone using your package might know what it does in a general sense from your DESCRIPTION, but they won’t necessarily know exactly how to set up the package or how to use specific functions. The README takes care of that. In general, README’s should do at least two things, with a couple of optional ones:</p>
+<p>(Important):</p>
+<ol style="list-style-type: decimal">
+<li>Offer a longer (one to three paragraph) description of the package, including core functions and bits and pieces of syntax</li>
+<li>Help users install and set up the package</li>
+</ol>
+<p>(Optional from here on):</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Tell developers what to do if they want to contribute to your package</p></li>
+<li><p>Help contributors figure out how to run the packages’ unit tests (we’ll talk more about unit tests in the next section)</p></li>
+<li><p>Offer some acknowledgements</p></li>
+</ol>
+<p>This <a href="https://gist.github.com/PurpleBooth/109311bb0361f32d87a2">template</a> README is a good starting point.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="documentation-with-roxygen2.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#include gist here...</span></span></code></pre></div>
+<p>You could copy this file into your package directory and modify it to reflect the content of your project. Again, because your package will technically function without your README, the actual structure and content of a README can be flexible. However, just remember that if you don’t have a README which outlines why and how to use your package, other developers are unlikely to want to use it.</p>
+</div>
+<div id="vignettes" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Vignettes</h2>
+<p>Documentation is useful, but not necessarily a comprehensive guide to your package. You may want to include details about your implementation, extra examples, and more organization than your documentation provides, which is exactly what vignettes are for.</p>
+<p><strong>Vignettes</strong> are basically articles which motivate and describe your packages. They are generally written in RMarkdown, which allows you to mix code, mathematical equations, and formatted text with ease. If you are using RStudio, then writing vignettes will be very easy, because RMarkdown works automatically with RStudio. On the other hand, if you don’t have RStudio, you will need to (i) run the ‘install.packages(“rmarkdown”)’ command, and (ii) install <a href="http://pandoc.org/installing.html">pandoc</a>.</p>
+<p>To write a vignette, start by running the <code>use_vignette()</code> function from the <code>usethis</code> package:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="documentation-with-roxygen2.html#cb53-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_vignette</span>(<span class="st">&#39;vignette-name&#39;</span>)</span></code></pre></div>
+<p>This function will create a ‘vignettes’ subdirectory and populate it with a file based on the name you specified. The file should look something like this:</p>
+<p><img src="images/packageSS/vignette1.PNG" /></p>
+<p>The top of the file, between the two lines of dashes, is written in the YAML language. It’s simply a convenient way to specify metadata about a vignette, and you should fill in the title and author fields.</p>
+<p>The rest of the vignette should be written in RMarkdown, which is basically a mix of Markdown, Latex, or code. The vignette template generated by <code>usethis</code> <em>is itself a guide to using RMarkdown</em>, so we won’t dive too deep into using RMarkdown. However, there are a couple of core things you should know:</p>
+<ol style="list-style-type: decimal">
+<li><p>By default, text in RMarkdown files is assumed to be written in <a href="http://pandoc.org/MANUAL.html">pandoc’s flavor of Markdown</a>.</p></li>
+<li><p>If you would like to include inline equations, you can do so by surrounding math symbols with a single dollar sign on each end. If you’d like to give an equation its own line, you can use two dollar signs on each end of the equations.</p></li>
+</ol>
+<div class="figure">
+<img src="images/packageSS/vignettemath.PNG" alt="" />
+<p class="caption"><em>Including math is easy in RMarkdown</em></p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>You can add chunks of R code (and even other languages!) to your Vignette file by wrapping R code in “```” symbols, as demonstrated below:</li>
+</ol>
+<p><img src="images/packageSS/vignettecode.PNG" /></p>
+<p>Once you’ve modified your vignette, you can <em>knit</em> it into a beautiful HTML document by running the following function in the console:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="documentation-with-roxygen2.html#cb54-1" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">&#39;path/to/rmarkdown/file.Rmd&#39;</span>)</span></code></pre></div>
+<p>If you do choose to write vignettes, remember that it’s critical to motivate <em>why</em> you wrote your package in the first place. Additionally, you should structure the vignette so that it gives users an impression of the overarching structure of the package itself (i.e. group and organize your functions!).</p>
+</div>
+<div id="releasing-your-package" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Releasing Your Package</h2>
+<p>You’re almost done at this point! You’ve written your functions, modified the description, documented your functions, presumably exported some of them, and hopefully tested all of them; you’re now ready to <em>release</em> and <em>publicize</em> your package. There are basically two main ways to do this.</p>
+<div id="pushing-to-github" class="section level3" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Pushing to GitHub</h3>
+<p>Because of the way we have set up this project the easiest way to publish your package is to simply <a href=".\version-control">push it to GitHub</a>, (we’ll discuss how to do this later). The pros of this approach are that it makes it very easy for users to download your package - they can literally do it in one line. Additionally, Github offers free services <a href="https://pages.github.com/">to host a website for your package and its documentation</a>, and most importantly, it’s very easy for <strong>you</strong> to publish your package this way. Thus, pushing to Github is sort of the “default” way to publish a smaller package.</p>
+</div>
+<div id="cran" class="section level3" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> CRAN</h3>
+<p>On the other hand, if you’ve written a larger package which you would like to distribute to the entire R community, you might consider submitting it to <a href="https://cran.r-project.org/">CRAN</a>, the Comprehensive R Archive Network. CRAN is basically the official package authority designated by the R community, and successfully adding your package to CRAN will make it more legitimate as well as easier for R users to find and install.</p>
+<p>Logistically, submitting your package to CRAN is pretty simple. The first step is to <strong>build</strong> your package, which means bundling it into a format that is easy to distribute and easy for users to install.</p>
+<p>The best way to build your package is to zip it as a .tar.gz file. <code>devtools</code> will do this for you if you run the following command:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="documentation-with-roxygen2.html#cb55-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build</span>(<span class="at">binary =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>and then you should see a tar.gz file pop up just outside your working directory.</p>
+<p>The next step is to submit the bundled file to CRAN <a href="https://cran.r-project.org/submit.html">at the link here</a>, along with a couple of comments. Although this seems pretty simple, in actuality, CRAN has very high standards for packages, so it can be rather tricky to get a package accepted. CRAN’s specific standards are beyond the scope of the current iteration of this guide, but if you decide you want to publish a package on CRAN, you should read <a href="http://r-pkgs.had.co.nz/release.html">Hadley Wickham’s advice on the subject</a> <strong>very carefully.</strong></p>
+<div id="optional-building-precompiled-binaries" class="section level4" number="3.6.2.1">
+<h4><span class="header-section-number">3.6.2.1</span> Optional: Building precompiled binaries</h4>
+<p>tar.gz files are useful because anyone who has a working R development environment can install and unzip your package, regardless of their operating system. However, you do need a development environment to install packages built as tar.gz files, and some users (in particular on Windows) may not have development environments set up yet. To address this potential issue, another way to build your package is as a <strong>precompiled binary file</strong>. Precompiled binaries are useful because unlike tar.gz files, they do not require a development environment to install. However, they are platform specific: a precompiled binary built by a Windows machine can’t be installed on Mac machine. Although tar.gz files are much more common, if you do want to build a binary, you can just change an argument of <code>devtools::build()</code>:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="documentation-with-roxygen2.html#cb56-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">build</span>(<span class="at">binary =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>and your precompiled binary will be built.</p>
+</div>
+</div>
+<div id="publicizing" class="section level3" number="3.6.3">
+<h3><span class="header-section-number">3.6.3</span> Publicizing</h3>
+<p>Once you’ve released your package either on Github or perhaps on CRAN, you should publicize it! You can of course publicize it any way you choose, but there are at least two things you should consider doing.</p>
+<ol style="list-style-type: decimal">
+<li>Tweet about your package using the #rstats hashtag, which reaches a substantial portion of the R community.</li>
+<li>You may also want to send an email out to the <a href="https://stat.ethz.ch/mailman/listinfo/r-packages">R-Packages email list</a>.</li>
+</ol>
+<p>And that’s it!</p>
+</div>
+</div>
+<div id="tips-and-tricks-1" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Tips and Tricks</h2>
+<p>First, there’s a wonderful cheat sheet for package development linked <a href="https://www.rstudio.com/wp-content/uploads/2015/06/devtools-cheatsheet.pdf">here</a>.</p>
+<p>Second, if you’re having trouble, you can always just reference <a href="https://stackoverflow.com/questions/tagged/r">stackoverflow</a>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="package-development.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/the-Statistical-Support-Network/dss-rbuild/dss-rbuild/edit/main/03_documentation.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["RpackagesDev.pdf", "RpackagesDev.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -36,7 +36,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={Testing},
+  pdftitle={Package Development in R},
   pdfauthor={Anthony Davidson},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
@@ -155,9 +155,9 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{Testing}
+\title{Package Development in R}
 \author{Anthony Davidson}
-\date{January 2022}
+\date{February 2022}
 
 \begin{document}
 \maketitle
@@ -1099,8 +1099,8 @@ When testing, there are a couple of key principles to keep in mind:
 
 The \texttt{devtools} cheatsheet, linked \href{https://www.rstudio.com/wp-content/uploads/2015/03/devtools-cheatsheet.pdf}{here}, references a lot of the key components of the \texttt{testthat} package.
 
-\hypertarget{documentation}{%
-\chapter{Documentation}\label{documentation}}
+\hypertarget{documentation-with-roxygen2}{%
+\chapter{Documentation with Roxygen2}\label{documentation-with-roxygen2}}
 
 Documentation is an absolutely essential part of any package - most people won't be willing to read your source code to figure out how your functions work. Thankfully, creating documentation for your package is incredibly easy with \texttt{Roxygen2}.
 
@@ -1108,6 +1108,18 @@ Documentation is an absolutely essential part of any package - most people won't
 \section{Documenting Functions}\label{documenting-functions}}
 
 Note: here, we describe how to document functions. For a more detailed description of how to document S3, S4, and reference classes, check out \href{http://r-pkgs.had.co.nz/man.html}{this page}.
+
+\texttt{Roxygen} is an R package that includes templates and shortcuts for documenting packages. For shiny packages there is now \href{https://engineering-shiny.org/golem.html}{golem}. The \texttt{devtools} package is used for building and testing the functions you write and document with \texttt{Roxygen} templates.
+
+To ensure that you have the correct files to build R packages with \texttt{Roxygen} the following aspects of an R package need to include references to the \texttt{Roxgyen} comments. These are:
+
+\hypertarget{description}{%
+\subsection{DESCRIPTION}\label{description}}
+
+{[}notes coming{]}
+
+\hypertarget{function-comments}{%
+\section{Function comments}\label{function-comments}}
 
 To understand how to use \texttt{Roxygen2}, it's best to start with an example. Consider the following code, which generates the documentation for the \texttt{general\_sqrt()} function above.
 
@@ -1180,100 +1192,16 @@ which will automatically generate your documentation. Then, if you've documented
 
 After documenting your package, you can also click the `/man' folder to inspect the documentation html files \texttt{Roxygen2} generates, but it probably won't be more informative than simply typing \texttt{?function-name} into the console.
 
-\hypertarget{adding-a-readme}{%
-\subsection{Adding a README}\label{adding-a-readme}}
-
-The README file is a bit different than the others, because your package will actually work fine even if you don't have one. However, if you want other people to use your package, it's best to have a README. The purpose of a README is basically to bridge the gap between the DESCRIPTION and the actual documentation in your package. In other words, someone using your package might know what it does in a general sense from your DESCRIPTION, but they won't necessarily know exactly how to set up the package or how to use specific functions. The README takes care of that. In general, READMEs should do at least two things, with a couple of optional ones:
-
-(Important):
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Offer a longer (one to three paragraph) description of the package, including core functions and bits and pieces of syntax
-\item
-  Help users install and set up the package
-\end{enumerate}
-
-(Optional from here on):
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
-\item
-  Tell developers what to do if they want to contribute to your package
-\item
-  Help contributors figure out how to run the packages' unit tests (we'll talk more about unit tests in the next section)
-\item
-  Offer some acknowledgements
-\end{enumerate}
-
-This \href{https://gist.github.com/PurpleBooth/109311bb0361f32d87a2}{template} README is a good starting point. You could copy this file into your package directory and modify it to reflect the content of your project. Again, because your package will technically function without your README, the actual structure and content of a README can be flexible. However, just remember that if you don't have a README which outlines why and how to use your package, other developers are unlikely to want to use it.
-
-\hypertarget{vignettes}{%
-\section{Vignettes}\label{vignettes}}
-
-Documentation is useful, but not necessarily a comprehensive guide to your package. You may want to include details about your implementation, extra examples, and more organization than your documentation provides, which is exactly what vignettes are for.
-
-\textbf{Vignettes} are basically articles which motivate and describe your packages. They are generally written in RMarkdown, which allows you to mix code, mathematical equations, and formatted text with ease. If you are using RStudio, then writing vignettes will be very easy, because RMarkdown works automatically with RStudio. On the other hand, if you don't have RStudio, you will need to (i) run the `install.packages(``rmarkdown'')' command, and (ii) install \href{http://pandoc.org/installing.html}{pandoc}.
-
-To write a vignette, start by running the \texttt{use\_vignette()} function from the \texttt{usethis} package:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{usethis}\SpecialCharTok{::}\FunctionTok{use\_vignette}\NormalTok{(}\StringTok{\textquotesingle{}vignette{-}name\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-This function will create a `vignettes' subdirectory and populate it with a file based on the name you specified. The file should look something like this:
-
-\includegraphics{images/packageSS/vignette1.PNG}
-
-The top of the file, between the two lines of dashes, is written in the YAML language. It's simply a convenient way to specify metadata about a vignette, and you should fill in the title and author fields.
-
-The rest of the vignette should be written in RMarkdown, which is basically a mix of Markdown, Latex, or code. The vignette template generated by \texttt{usethis} \emph{is itself a guide to using RMarkdown}, so we won't dive too deep into using RMarkdown. However, there are a couple of core things you should know:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  By default, text in RMarkdown files is assumed to be written in \href{http://pandoc.org/MANUAL.html}{pandoc's flavor of Markdown}.
-\item
-  If you would like to include inline equations, you can do so by surrounding math symbols with a single dollar sign on each end. If you'd like to give an equation its own line, you can use two dollar signs on each end of the equations.
-\end{enumerate}
-
-\begin{figure}
-\centering
-\includegraphics{images/packageSS/vignettemath.PNG}
-\caption{\emph{Including math is easy in RMarkdown}}
-\end{figure}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{2}
-\tightlist
-\item
-  You can add chunks of R code (and even other languages!) to your Vignette file by wrapping R code in `````'' symbols, as demonstrated below:
-\end{enumerate}
-
-\includegraphics{images/packageSS/vignettecode.PNG}
-
-Once you've modified your vignette, you can \emph{knit} it into a beautiful HTML document by running the following function in the console:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{rmarkdown}\SpecialCharTok{::}\FunctionTok{render}\NormalTok{(}\StringTok{\textquotesingle{}path/to/rmarkdown/file.Rmd\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-If you do choose to write vignettes, remember that it's critical to motivate \emph{why} you wrote your package in the first place. Additionally, you should structure the vignette so that it gives users an impression of the overarching structure of the package itself (i.e.~group and organize your functions!).
-
 \hypertarget{adding-and-documenting-data}{%
 \section{Adding and Documenting Data}\label{adding-and-documenting-data}}
 
 Sometimes, you'll want to include data as part of your package, either to serve as an example for users or because your functions need it to work. This is totally optional - not all packages need to include data - but can be useful, so let's walk through how to include (and document) data in your package. Note that there are at least two kinds of data you should think about including, but for both kinds of data, you should generally save them as `.rdata' or `.rda' files (which are the same thing).
+
+\hypertarget{rds-rdata-and-rda-files}{%
+\subsection{\texorpdfstring{\texttt{rds}, \texttt{rdata} and \texttt{rda} files}{rds, rdata and rda files}}\label{rds-rdata-and-rda-files}}
+
+\hypertarget{roxygen-data}{%
+\subsection{\texorpdfstring{\texttt{Roxygen} data}{Roxygen data}}\label{roxygen-data}}
 
 \hypertarget{including-data-which-should-be-available-to-users}{%
 \subsection{Including data which should be available to users}\label{including-data-which-should-be-available-to-users}}
@@ -1330,7 +1258,105 @@ Some functions may rely on a large, predefined set of coefficients or other inpu
 \end{Highlighting}
 \end{Shaded}
 
+\begin{quote}
 Data in `R/sysdata.rda' is never exported, so there's no need to document it.
+\end{quote}
+
+\hypertarget{readme}{%
+\section{README}\label{readme}}
+
+The README file is a bit different than the others, because your package will actually work fine even if you don't have one. However, if you want other people to use your package, it's best to have a README. The purpose of a README is basically to bridge the gap between the DESCRIPTION and the actual documentation in your package. In other words, someone using your package might know what it does in a general sense from your DESCRIPTION, but they won't necessarily know exactly how to set up the package or how to use specific functions. The README takes care of that. In general, README's should do at least two things, with a couple of optional ones:
+
+(Important):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Offer a longer (one to three paragraph) description of the package, including core functions and bits and pieces of syntax
+\item
+  Help users install and set up the package
+\end{enumerate}
+
+(Optional from here on):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  Tell developers what to do if they want to contribute to your package
+\item
+  Help contributors figure out how to run the packages' unit tests (we'll talk more about unit tests in the next section)
+\item
+  Offer some acknowledgements
+\end{enumerate}
+
+This \href{https://gist.github.com/PurpleBooth/109311bb0361f32d87a2}{template} README is a good starting point.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#include gist here...}
+\end{Highlighting}
+\end{Shaded}
+
+You could copy this file into your package directory and modify it to reflect the content of your project. Again, because your package will technically function without your README, the actual structure and content of a README can be flexible. However, just remember that if you don't have a README which outlines why and how to use your package, other developers are unlikely to want to use it.
+
+\hypertarget{vignettes}{%
+\section{Vignettes}\label{vignettes}}
+
+Documentation is useful, but not necessarily a comprehensive guide to your package. You may want to include details about your implementation, extra examples, and more organization than your documentation provides, which is exactly what vignettes are for.
+
+\textbf{Vignettes} are basically articles which motivate and describe your packages. They are generally written in RMarkdown, which allows you to mix code, mathematical equations, and formatted text with ease. If you are using RStudio, then writing vignettes will be very easy, because RMarkdown works automatically with RStudio. On the other hand, if you don't have RStudio, you will need to (i) run the `install.packages(``rmarkdown'')' command, and (ii) install \href{http://pandoc.org/installing.html}{pandoc}.
+
+To write a vignette, start by running the \texttt{use\_vignette()} function from the \texttt{usethis} package:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{usethis}\SpecialCharTok{::}\FunctionTok{use\_vignette}\NormalTok{(}\StringTok{\textquotesingle{}vignette{-}name\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+This function will create a `vignettes' subdirectory and populate it with a file based on the name you specified. The file should look something like this:
+
+\includegraphics{images/packageSS/vignette1.PNG}
+
+The top of the file, between the two lines of dashes, is written in the YAML language. It's simply a convenient way to specify metadata about a vignette, and you should fill in the title and author fields.
+
+The rest of the vignette should be written in RMarkdown, which is basically a mix of Markdown, Latex, or code. The vignette template generated by \texttt{usethis} \emph{is itself a guide to using RMarkdown}, so we won't dive too deep into using RMarkdown. However, there are a couple of core things you should know:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  By default, text in RMarkdown files is assumed to be written in \href{http://pandoc.org/MANUAL.html}{pandoc's flavor of Markdown}.
+\item
+  If you would like to include inline equations, you can do so by surrounding math symbols with a single dollar sign on each end. If you'd like to give an equation its own line, you can use two dollar signs on each end of the equations.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics{images/packageSS/vignettemath.PNG}
+\caption{\emph{Including math is easy in RMarkdown}}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  You can add chunks of R code (and even other languages!) to your Vignette file by wrapping R code in `````'' symbols, as demonstrated below:
+\end{enumerate}
+
+\includegraphics{images/packageSS/vignettecode.PNG}
+
+Once you've modified your vignette, you can \emph{knit} it into a beautiful HTML document by running the following function in the console:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rmarkdown}\SpecialCharTok{::}\FunctionTok{render}\NormalTok{(}\StringTok{\textquotesingle{}path/to/rmarkdown/file.Rmd\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+If you do choose to write vignettes, remember that it's critical to motivate \emph{why} you wrote your package in the first place. Additionally, you should structure the vignette so that it gives users an impression of the overarching structure of the package itself (i.e.~group and organize your functions!).
 
 \hypertarget{releasing-your-package}{%
 \section{Releasing Your Package}\label{releasing-your-package}}
@@ -1340,7 +1366,7 @@ You're almost done at this point! You've written your functions, modified the de
 \hypertarget{pushing-to-github}{%
 \subsection{Pushing to GitHub}\label{pushing-to-github}}
 
-The easiest way to publish your package is to simply \href{./version-control}{push it to GitHub}, (we'll discuss how to do this later). The pros of this approach are that it makes it very easy for users to download your package - they can literally do it in one line. Additionally, Github offers free services \href{https://pages.github.com/}{to host a website for your package and its documentation}, and most importantly, it's very easy for \textbf{you} to publish your package this way. Thus, pushing to Github is sort of the ``default'' way to publish a smaller package.
+Because of the way we have set up this project the easiest way to publish your package is to simply \href{./version-control}{push it to GitHub}, (we'll discuss how to do this later). The pros of this approach are that it makes it very easy for users to download your package - they can literally do it in one line. Additionally, Github offers free services \href{https://pages.github.com/}{to host a website for your package and its documentation}, and most importantly, it's very easy for \textbf{you} to publish your package this way. Thus, pushing to Github is sort of the ``default'' way to publish a smaller package.
 
 \hypertarget{cran}{%
 \subsection{CRAN}\label{cran}}

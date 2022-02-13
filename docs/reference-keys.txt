@@ -1,10 +1,11 @@
+overview
 file-paths
 the-description
 writing-code
 code-style
-testing
 expectations
-documentation
+description
+readme
 vignettes
 cran
 publicizing

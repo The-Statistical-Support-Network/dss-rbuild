@@ -1,8 +1,6 @@
 ---
-
+title: Testing
 ---
-
-# Testing
 
 ## Why should you test?
 
